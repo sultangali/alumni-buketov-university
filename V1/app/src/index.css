@@ -1,0 +1,152 @@
+/* ---- Ported verbatim from the prototype <helmet> <style> block ---- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-line);
+  border-radius: 9px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -180% 0;
+  }
+  100% {
+    background-position: 180% 0;
+  }
+}
+@keyframes ringspin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes glowpulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes attractProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---- Motion preference handling (mirrors the prototype's applyMotion) ---- */
+/* "off"  — kill every animation + collapse transitions */
+[data-motion='off'] *,
+[data-motion='off'] *::before,
+[data-motion='off'] *::after {
+  animation: none !important;
+  transition-duration: 0.001s !important;
+}
+/* "subtle" — keep entrance animations, drop the looping decorative ones */
+[data-motion='subtle'] [data-loop] {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-loop] {
+    animation: none !important;
+  }
+}
+
+/* The outer demo page */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Hover affordance helpers (the prototype used style-hover on these) */
+.lift {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px -18px rgba(20, 33, 58, 0.4);
+}
+.lift-lg {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lift-lg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 40px -20px rgba(20, 33, 58, 0.45);
+}
+.lift-row {
+  transition: transform 0.16s ease;
+}
+.lift-row:hover {
+  transform: translateX(4px);
+}
+.lift-card {
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.lift-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px -16px rgba(20, 33, 58, 0.4);
+}
+.press {
+  transition: transform 0.15s ease;
+}
+.press:hover {
+  transform: translateY(-1px);
+}
+
+/* ---- Kiosk: larger touch rows & gallery grid ---- */
+[data-kiosk] button { -webkit-tap-highlight-color: transparent; }
+[data-kiosk] .lift:active,
+[data-kiosk] .lift-card:active,
+[data-kiosk] .lift-lg:active { transform: scale(0.98); }
+[data-kiosk] input { font-size: 18px; }
