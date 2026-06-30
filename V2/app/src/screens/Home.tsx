@@ -13,21 +13,24 @@ export function Home() {
 
   const feats = featList()
   const fi = feats.length ? featIdx % feats.length : 0
+  // No featured alumni yet (e.g. a freshly seeded archive) — `fa` is undefined.
   const fa = feats[fi]
-  const f = fac(fa.fac)
+  const f = fa ? fac(fa.fac) : undefined
 
-  const feat = {
-    initials: initials(fa.name),
-    grad: cardGrad(fa.accent),
-    name: L(fa.name),
-    position: L(fa.pos),
-    video: fa.video,
-    yearLabel:
-      (lang === 'en' ? 'Class of ' : lang === 'kz' ? '' : 'Выпуск ') +
-      fa.year +
-      (lang === 'kz' ? ' жылғы түлек' : ''),
-    facLine: (f ? L(f.name) : '') + ' · ' + L(fa.spec),
-  }
+  const feat = fa
+    ? {
+        initials: initials(fa.name),
+        grad: cardGrad(fa.accent),
+        name: L(fa.name),
+        position: L(fa.pos),
+        video: fa.video,
+        yearLabel:
+          (lang === 'en' ? 'Class of ' : lang === 'kz' ? '' : 'Выпуск ') +
+          fa.year +
+          (lang === 'kz' ? ' жылғы түлек' : ''),
+        facLine: (f ? L(f.name) : '') + ' · ' + L(fa.spec),
+      }
+    : null
 
   const categories: {
     route: Route
@@ -195,6 +198,19 @@ export function Home() {
           </div>
         </div>
 
+        {!feat ? (
+          <div
+            className="top-rule bd2"
+            style={{
+              padding: '40px var(--pad)',
+              textAlign: 'center',
+              color: 'var(--c-ink2)',
+              fontSize: 'var(--t-base)',
+            }}
+          >
+            {ui.featuredEmpty}
+          </div>
+        ) : (
         <div className="top-rule bd2" style={spotlightStyle}>
           {/* portrait */}
           <div style={spotPortraitStyle}>
@@ -359,6 +375,7 @@ export function Home() {
             </div>
           </div>
         </div>
+        )}
       </div>
 
       {/* categories — shown first */}

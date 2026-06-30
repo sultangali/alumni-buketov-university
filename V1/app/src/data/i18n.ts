@@ -46,6 +46,7 @@ export const I18N: Record<Lang, UIStrings> = {
     heroSub:
       'Цифровая картотека выпускников и преподавателей Karaganda Buketov University. Более полувека историй, достижений и судеб — от наставника к ученику.',
     featuredHint: 'Автопрокрутка',
+    featuredEmpty: 'Пока нет избранных выпускников',
     distinguished: 'Выдающийся выпускник',
     viewProfile: 'Открыть профиль',
     exploreFaculties: 'Выберите факультет',
@@ -253,6 +254,7 @@ export const I18N: Record<Lang, UIStrings> = {
     heroSub:
       'Karaganda Buketov University түлектері мен оқытушыларының цифрлық картотекасы. Жарты ғасырдан астам тарих, жетістіктер мен тағдырлар — ұстаздан шәкіртке.',
     featuredHint: 'Автоайналым',
+    featuredEmpty: 'Әзірге таңдаулы түлектер жоқ',
     distinguished: 'Үздік түлек',
     viewProfile: 'Профильді ашу',
     exploreFaculties: 'Факультетті таңдаңыз',
@@ -460,6 +462,7 @@ export const I18N: Record<Lang, UIStrings> = {
     heroSub:
       'The digital archive of graduates and faculty of Karaganda Buketov University. Half a century of stories and achievements — from mentor to student.',
     featuredHint: 'Auto-rotating',
+    featuredEmpty: 'No featured alumni yet',
     distinguished: 'Distinguished graduate',
     viewProfile: 'Open profile',
     exploreFaculties: 'Choose a faculty',
