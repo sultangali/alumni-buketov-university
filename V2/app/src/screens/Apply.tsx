@@ -18,7 +18,7 @@ export function Apply() {
 
   const [name, setName] = useState('')
   const [contact, setContact] = useState('')
-  const [facId, setFacId] = useState(FAC[0].id)
+  const [facId, setFacId] = useState(FAC[0]?.id ?? '')
   const [facOther, setFacOther] = useState('')
   const [facNotListed, setFacNotListed] = useState(false)
   const [year, setYear] = useState('')
@@ -83,7 +83,7 @@ export function Apply() {
   const reset = () => {
     setName('')
     setContact('')
-    setFacId(FAC[0].id)
+    setFacId(FAC[0]?.id ?? '')
     setFacOther('')
     setFacNotListed(false)
     setYear('')

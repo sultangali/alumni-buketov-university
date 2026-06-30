@@ -101,7 +101,7 @@ export function Admin() {
   // ---- moderator-management state ----
   const [nUser, setNUser] = useState('')
   const [nPass, setNPass] = useState('')
-  const [nFac, setNFac] = useState(FAC[0].id)
+  const [nFac, setNFac] = useState(FAC[0]?.id ?? '')
   const [nTouched, setNTouched] = useState(false)
   const [busy, setBusy] = useState(false)
   const [feedback, setFeedback] = useState('')

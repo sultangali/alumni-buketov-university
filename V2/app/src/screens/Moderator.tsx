@@ -202,7 +202,7 @@ export function Moderator() {
     setPublishing(true)
     const err = await createPerson({
       name: buildName(),
-      fac: scopeFac || FAC[0].id,
+      fac: scopeFac || FAC[0]?.id || '',
       year: form.year.trim() ? Number(form.year.trim()) || undefined : undefined,
       spec: toLoc(form.spec),
       pos: toLoc(form.pos),
