@@ -3,22 +3,24 @@ import type { CSSProperties } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import { useApp } from '../AppContext'
 import { FAC } from '../data/records'
+import { mediaSrc } from '../lib/api'
 import { useOptionalKeyboard } from '../kiosk/keyboard'
 import { Icon } from '../components/icons'
 
-const OTHER = '__other__'
 // On a kiosk the visitor can't attach files — they scan this to finish the
 // photo/media upload (profile photo auto-cropped to 3:4) from their phone.
 const UPLOAD_URL = 'https://alumni.buketov.edu.kz/u/apply'
 
 export function Apply() {
-  const { ui, L, go, addSubmission, narrow } = useApp()
+  const { ui, L, go, addSubmission, narrow, uploadMedia } = useApp()
   const kbCtx = useOptionalKeyboard()
+  const [uploadErr, setUploadErr] = useState('')
 
   const [name, setName] = useState('')
   const [contact, setContact] = useState('')
   const [facId, setFacId] = useState(FAC[0].id)
   const [facOther, setFacOther] = useState('')
+  const [facNotListed, setFacNotListed] = useState(false)
   const [year, setYear] = useState('')
   const [spec, setSpec] = useState('')
   const [pos, setPos] = useState('')
@@ -30,21 +32,32 @@ export function Apply() {
   const [photo, setPhoto] = useState('')
   const [media, setMedia] = useState<{ name: string; kind: 'image' | 'video'; url: string }[]>([])
 
-  const otherEmpty = facId === OTHER && !facOther.trim()
+  const otherEmpty = facNotListed && !facOther.trim()
 
-  const onPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
+    e.target.value = ''
     if (!file) return
-    const reader = new FileReader()
-    reader.onload = () => setPhoto(String(reader.result))
-    reader.readAsDataURL(file)
+    setUploadErr('')
+    const up = await uploadMedia(file)
+    if (!up) {
+      setUploadErr(ui.uploadFailed)
+      return
+    }
+    setPhoto(up.url)
   }
-  const onMedia = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onMedia = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files ?? [])
-    setMedia((prev) => [
-      ...prev,
-      ...files.map((f) => ({ name: f.name, kind: (f.type.startsWith('video') ? 'video' : 'image') as 'image' | 'video', url: URL.createObjectURL(f) })),
-    ])
+    e.target.value = ''
+    setUploadErr('')
+    for (const f of files) {
+      const up = await uploadMedia(f)
+      if (!up) {
+        setUploadErr(ui.uploadFailed)
+        continue
+      }
+      setMedia((prev) => [...prev, { name: up.name, kind: up.kind, url: up.url }])
+    }
   }
 
   const submit = () => {
@@ -55,14 +68,14 @@ export function Apply() {
     addSubmission({
       name: { ru: name.trim() },
       year: year.trim() ? Number(year.trim()) || null : null,
-      fac: facId === OTHER ? facOther.trim() : facId,
+      fac: facNotListed ? facOther.trim() : facId,
       spec: spec.trim(),
       pos: pos.trim(),
       bio: bio.trim(),
       mentor: mentor.trim() || undefined,
       students: students.trim() || undefined,
       photoUrl: photo || undefined,
-      media: media.map((m) => ({ name: m.name, kind: m.kind })),
+      media: media.map((m) => ({ name: m.name, kind: m.kind, url: m.url })),
     })
     setDone(true)
   }
@@ -72,6 +85,7 @@ export function Apply() {
     setContact('')
     setFacId(FAC[0].id)
     setFacOther('')
+    setFacNotListed(false)
     setYear('')
     setSpec('')
     setPos('')
@@ -80,6 +94,7 @@ export function Apply() {
     setStudents('')
     setPhoto('')
     setMedia([])
+    setUploadErr('')
     setTouched(false)
     setDone(false)
   }
@@ -267,44 +282,73 @@ export function Apply() {
 
         <div>
           <div style={fieldLabel}>{ui.applyFaculty}</div>
-          <div style={{ position: 'relative' }}>
-            <select
-              value={facId}
+          {!facNotListed && (
+            <div style={{ position: 'relative' }}>
+              <select
+                value={facId}
+                onChange={(e) => {
+                  setFacId(e.target.value)
+                  setTouched(false)
+                }}
+                style={selectStyle}
+              >
+                {FAC.map((f) => (
+                  <option key={f.id} value={f.id}>
+                    {L(f.name)}
+                  </option>
+                ))}
+              </select>
+              <span
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  right: 14,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  pointerEvents: 'none',
+                  color: 'var(--c-ink2)',
+                  fontSize: 11,
+                }}
+              >
+                ▼
+              </span>
+            </div>
+          )}
+
+          {/* Dedicated "my faculty isn't listed" path — a clear toggle that
+              swaps the dropdown for a free-text input. */}
+          <label
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 9,
+              marginTop: 10,
+              cursor: 'pointer',
+              color: 'var(--c-ink)',
+              fontSize: 'var(--t-sm)',
+              fontWeight: 600,
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={facNotListed}
               onChange={(e) => {
-                setFacId(e.target.value)
+                setFacNotListed(e.target.checked)
                 setTouched(false)
               }}
-              style={selectStyle}
-            >
-              {FAC.map((f) => (
-                <option key={f.id} value={f.id}>
-                  {L(f.name)}
-                </option>
-              ))}
-              <option value={OTHER}>{ui.applyFacOther}</option>
-            </select>
-            <span
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                right: 14,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                pointerEvents: 'none',
-                color: 'var(--c-ink2)',
-                fontSize: 11,
-              }}
-            >
-              ▼
-            </span>
-          </div>
-          {facId === OTHER && (
-            <div style={{ marginTop: 8 }}>
+              style={{ width: 18, height: 18, accentColor: 'var(--c-primary)', cursor: 'pointer', flex: '0 0 auto' }}
+            />
+            {ui.applyFacNotListed}
+          </label>
+
+          {facNotListed && (
+            <div style={{ marginTop: 10 }}>
               <input
                 value={facOther}
                 onChange={(e) => setFacOther(e.target.value)}
                 onFocus={() => kbCtx?.focus(setFacOther)}
                 placeholder={ui.applyFacOtherPh}
+                autoFocus
                 style={{
                   ...inputStyle,
                   borderColor: touched && otherEmpty ? '#c2410c' : 'var(--c-line)',
@@ -374,7 +418,7 @@ export function Apply() {
               }}
             >
               {photo
-                ? <img src={photo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
+                ? <img src={mediaSrc(photo)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
                 : <Icon name="image" size={26} />
               }
             </div>
@@ -415,6 +459,9 @@ export function Apply() {
             <input type="file" accept="image/*,video/*" multiple onChange={onMedia} style={{ display: 'none' }} />
             <Icon name="plus" size={16} /> {ui.applyMediaBtn}
           </label>
+          {uploadErr && (
+            <div style={{ color: '#c2410c', fontSize: 'var(--t-2xs)', fontWeight: 600, marginTop: 8 }}>{uploadErr}</div>
+          )}
           {media.length > 0 && (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 10 }}>
               {media.map((m, idx) => (
@@ -436,7 +483,7 @@ export function Apply() {
                   }}
                 >
                   {m.kind === 'image'
-                    ? <img src={m.url} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
+                    ? <img src={mediaSrc(m.url)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
                     : <Icon name="play" size={20} />
                   }
                   <button

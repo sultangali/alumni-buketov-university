@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import type { AppProps, Lang, Preview, Route, Submission, Theme } from './types'
+import type { AppProps, Lang, ModeratorAccount, Preview, Route, Submission, Theme } from './types'
 import { I18N, type UIStrings } from './data/i18n'
 import { fac, featList, makeL, person, type Localize } from './lib/logic'
 import {
@@ -17,10 +17,59 @@ import {
   apiCreateSubmission,
   apiListSubmissions,
   apiPatchSubmission,
+  apiListModerators,
+  apiCreateModerator,
+  apiUpdateModerator,
+  apiDeleteModerator,
+  apiUpdatePerson,
+  apiCreatePerson,
+  apiEditSubmission,
+  apiUploadMedia,
+  type UploadedMedia,
 } from './lib/api'
 import { hydrate } from './data/records'
 
 type Staff = { token: string; role: 'admin' | 'moderator'; username: string; fac?: string }
+
+// Persist the staff session + current route across reloads so an authenticated
+// admin/moderator stays signed in and on the same screen instead of being
+// bounced back to the home page.
+const STAFF_KEY = 'alumni-staff-session'
+const ROUTE_KEY = 'alumni-route'
+const readStaff = (): Staff | null => {
+  try {
+    const raw = localStorage.getItem(STAFF_KEY)
+    return raw ? (JSON.parse(raw) as Staff) : null
+  } catch {
+    return null
+  }
+}
+const readRoute = (): Route => {
+  try {
+    const raw = localStorage.getItem(ROUTE_KEY)
+    if (raw) {
+      const r = JSON.parse(raw) as Route
+      // staff-only screens require a session; otherwise fall back home
+      const staffOnly = r.name === 'admin' || r.name === 'mod' || r.name === 'submission'
+      if (!staffOnly || readStaff()) return r
+    }
+  } catch {
+    /* malformed — ignore */
+  }
+  return { name: 'home' }
+}
+
+/** Initial preview mode: ?preview=kiosk|browser in the URL wins (for the
+ *  info-kiosk's fixed URL), otherwise default to browser. */
+const readPreview = (): Preview => {
+  try {
+    const p = new URLSearchParams(window.location.search).get('preview')
+    if (p === 'kiosk' || p === 'browser') return p
+  } catch {
+    /* no window/search — ignore */
+  }
+  return 'browser'
+}
 
 // Configurable defaults — these correspond to the prototype's data-props
 // (motion / defaultTheme / defaultLang / autoplaySeconds).
@@ -57,8 +106,8 @@ interface AppCtx extends AppProps {
   setListQuery: (q: string) => void
   media: 'photos' | 'videos'
   setMedia: (m: 'photos' | 'videos') => void
-  modTab: 'list' | 'add' | 'review'
-  setModTab: (t: 'list' | 'add' | 'review') => void
+  modTab: 'list' | 'add' | 'drafts' | 'review'
+  setModTab: (t: 'list' | 'add' | 'drafts' | 'review') => void
   adminTab: 'overview' | 'audit' | 'mods'
   setAdminTab: (t: 'overview' | 'audit' | 'mods') => void
 
@@ -70,7 +119,18 @@ interface AppCtx extends AppProps {
   login: (username: string, password: string) => Promise<'admin' | 'moderator' | null>
   logout: () => void
   refreshSubmissions: () => void
-  reviewSubmission: (id: string, action: 'approve' | 'reject') => void
+  reviewSubmission: (id: string, action: 'approve' | 'reject') => Promise<string | null>
+
+  moderators: ModeratorAccount[]
+  refreshModerators: () => void
+  createModerator: (body: { username: string; password: string; fac: string; scope?: Record<string, string> }) => Promise<string | null>
+  updateModerator: (id: string, body: { fac?: string; status?: 'active' | 'suspended'; password?: string; scope?: Record<string, string> }) => Promise<string | null>
+  deleteModerator: (id: string) => Promise<string | null>
+  updatePerson: (id: string, body: Record<string, unknown>) => Promise<string | null>
+  createPerson: (body: Record<string, unknown>) => Promise<string | null>
+  editSubmission: (id: string, body: Record<string, unknown>) => Promise<string | null>
+  /** Upload one image/video file; resolves to the stored media or null on error. */
+  uploadMedia: (file: File) => Promise<UploadedMedia | null>
 }
 
 const Ctx = createContext<AppCtx | null>(null)
@@ -84,14 +144,15 @@ export function useApp(): AppCtx {
 export function AppProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(PROPS.defaultLang)
   const [theme, setTheme] = useState<Theme>(PROPS.defaultTheme)
-  const [preview, setPreview] = useState<Preview>('browser')
-  const [route, setRoute] = useState<Route>({ name: 'home' })
+  // The info-kiosk opens the site with ?preview=kiosk to start in kiosk layout.
+  const [preview, setPreview] = useState<Preview>(readPreview)
+  const [route, setRoute] = useState<Route>(readRoute)
   const [, setHistory] = useState<Route[]>([])
   const [featIdx, setFeatIdx] = useState(0)
   const [listYear, setListYear] = useState<number | 'all'>('all')
   const [listQuery, setListQuery] = useState('')
   const [media, setMedia] = useState<'photos' | 'videos'>('photos')
-  const [modTab, setModTab] = useState<'list' | 'add' | 'review'>('list')
+  const [modTab, setModTab] = useState<'list' | 'add' | 'drafts' | 'review'>('list')
   const [adminTab, setAdminTab] = useState<'overview' | 'audit' | 'mods'>('overview')
   const [submissions, setSubmissions] = useState<Submission[]>([])
   const subSeq = useRef(0)
@@ -99,7 +160,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // ---- API hydration + staff auth ----
   const [ready, setReady] = useState(false)
   const [, force] = useState(0)
-  const [staff, setStaff] = useState<Staff | null>(null)
+  const [staff, setStaff] = useState<Staff | null>(readStaff)
+
+  // Persist the route on every change so a reload restores the same screen.
+  useEffect(() => {
+    try {
+      localStorage.setItem(ROUTE_KEY, JSON.stringify(route))
+    } catch {
+      /* storage unavailable — ignore */
+    }
+  }, [route])
 
   useEffect(() => {
     fetchBootstrap()
@@ -129,25 +199,154 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const login = useCallback(async (username: string, password: string) => {
     try {
       const r = await apiLogin(username, password)
-      setStaff({ token: r.token, role: r.role, username: r.username, fac: r.fac })
+      const s: Staff = { token: r.token, role: r.role, username: r.username, fac: r.fac }
+      setStaff(s)
+      try {
+        localStorage.setItem(STAFF_KEY, JSON.stringify(s))
+      } catch {
+        /* storage unavailable — session stays in-memory */
+      }
       return r.role as 'admin' | 'moderator'
     } catch {
       return null
     }
   }, [])
-  const logout = useCallback(() => setStaff(null), [])
+  const logout = useCallback(() => {
+    setStaff(null)
+    try {
+      localStorage.removeItem(STAFF_KEY)
+    } catch {
+      /* ignore */
+    }
+  }, [])
   const refreshSubmissions = useCallback(() => {
     if (!staff) return
     apiListSubmissions(staff.token).then(setSubmissions).catch(() => {})
   }, [staff])
   const reviewSubmission = useCallback(
     (id: string, action: 'approve' | 'reject') => {
-      if (!staff) return
-      apiPatchSubmission(id, action, staff.token)
-        .then(() => refreshSubmissions())
-        .catch(() => {})
+      if (!staff) return Promise.resolve('no session')
+      return apiPatchSubmission(id, action, staff.token)
+        .then(() => {
+          refreshSubmissions()
+          // approving publishes a new archive record — re-hydrate content
+          if (action === 'approve') reloadContent()
+          return null
+        })
+        .catch((e) => (e instanceof Error ? e.message : 'error'))
     },
     [staff, refreshSubmissions],
+  )
+
+  // ---- moderator management (admin) ----
+  const [moderators, setModerators] = useState<ModeratorAccount[]>([])
+  const refreshModerators = useCallback(() => {
+    if (!staff || staff.role !== 'admin') return
+    apiListModerators(staff.token).then(setModerators).catch(() => {})
+  }, [staff])
+  const errMsg = (e: unknown): string => (e instanceof Error ? e.message : 'error')
+  const createModerator = useCallback(
+    async (body: { username: string; password: string; fac: string; scope?: Record<string, string> }) => {
+      if (!staff) return 'no session'
+      try {
+        await apiCreateModerator(body, staff.token)
+        refreshModerators()
+        return null
+      } catch (e) {
+        return errMsg(e)
+      }
+    },
+    [staff, refreshModerators],
+  )
+  const updateModerator = useCallback(
+    async (id: string, body: { fac?: string; status?: 'active' | 'suspended'; password?: string; scope?: Record<string, string> }) => {
+      if (!staff) return 'no session'
+      try {
+        await apiUpdateModerator(id, body, staff.token)
+        refreshModerators()
+        return null
+      } catch (e) {
+        return errMsg(e)
+      }
+    },
+    [staff, refreshModerators],
+  )
+  const deleteModerator = useCallback(
+    async (id: string) => {
+      if (!staff) return 'no session'
+      try {
+        await apiDeleteModerator(id, staff.token)
+        refreshModerators()
+        return null
+      } catch (e) {
+        return errMsg(e)
+      }
+    },
+    [staff, refreshModerators],
+  )
+
+  // Re-fetch the whole content bootstrap and re-hydrate the live datasets,
+  // then force a re-render so every screen reflects the change.
+  const reloadContent = useCallback(() => {
+    return fetchBootstrap()
+      .then((d) => {
+        hydrate(d)
+        force((n) => n + 1)
+      })
+      .catch(() => {})
+  }, [])
+  const updatePerson = useCallback(
+    async (id: string, body: Record<string, unknown>) => {
+      if (!staff) return 'no session'
+      try {
+        await apiUpdatePerson(id, body, staff.token)
+        await reloadContent()
+        return null
+      } catch (e) {
+        return errMsg(e)
+      }
+    },
+    [staff, reloadContent],
+  )
+  // Moderator publishes a verified alumnus directly into the archive.
+  const createPerson = useCallback(
+    async (body: Record<string, unknown>) => {
+      if (!staff) return 'no session'
+      try {
+        await apiCreatePerson(body, staff.token)
+        await reloadContent()
+        return null
+      } catch (e) {
+        return errMsg(e)
+      }
+    },
+    [staff, reloadContent],
+  )
+  // In-place correction of a pending submission before it is published.
+  const editSubmission = useCallback(
+    async (id: string, body: Record<string, unknown>) => {
+      if (!staff) return 'no session'
+      try {
+        await apiEditSubmission(id, body, staff.token)
+        refreshSubmissions()
+        return null
+      } catch (e) {
+        return errMsg(e)
+      }
+    },
+    [staff, refreshSubmissions],
+  )
+  // Upload a single image/video to the server (returns the stored media path).
+  // Public: the apply form uploads without a session, staff pass their token.
+  const uploadMedia = useCallback(
+    async (file: File): Promise<UploadedMedia | null> => {
+      try {
+        return await apiUploadMedia(file, staff?.token)
+      } catch {
+        return null
+      }
+    },
+    [staff],
   )
 
   const narrow = preview === 'kiosk'
@@ -221,6 +420,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       c = ui.categories + sep + ui.applyTitle
     } else if (r.name === 'access') {
       c = ui.accessTitle
+    } else if (r.name === 'submission') {
+      c = ui.staff + sep + ui.tabReview
     } else if (r.name === 'mod') {
       c = ui.staff + sep + 'Модератор'
     } else if (r.name === 'admin') {
@@ -268,6 +469,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
     logout,
     refreshSubmissions,
     reviewSubmission,
+    moderators,
+    refreshModerators,
+    createModerator,
+    updateModerator,
+    deleteModerator,
+    updatePerson,
+    createPerson,
+    editSubmission,
+    uploadMedia,
   }
 
   if (!ready) {

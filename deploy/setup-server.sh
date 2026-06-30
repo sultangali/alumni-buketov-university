@@ -13,7 +13,7 @@
 set -euo pipefail
 
 # ---- config (override via env) ---------------------------------------------
-DOMAIN="${DOMAIN:?set DOMAIN=your.domain.kz}"
+DOMAIN="${DOMAIN:?set DOMAIN=alumni.buketov.edu.kz}"
 APP_USER="${APP_USER:-alumni}"
 APP_DIR="${APP_DIR:-/opt/alumni}"          # repo will live in $APP_DIR/app
 NODE_MAJOR="${NODE_MAJOR:-20}"
@@ -68,8 +68,13 @@ install -m 644 "$(dirname "$0")/systemd/alumni-api.service" /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable alumni-api.service || true
 
-log "nginx site"
-sed "s/__DOMAIN__/${DOMAIN}/g; s#__APP_DIR__#${APP_DIR}#g" \
+log "web root for static frontend (/var/www/alumni)"
+mkdir -p /var/www/alumni
+chown -R "$APP_USER:$APP_USER" /var/www/alumni
+
+log "nginx site (public domain + local-IP kiosk)"
+install -m 644 "$(dirname "$0")/nginx/alumni-app.conf" /etc/nginx/snippets/alumni-app.conf
+sed "s/__DOMAIN__/${DOMAIN}/g" \
   "$(dirname "$0")/nginx/alumni.conf.template" > /etc/nginx/sites-available/alumni.conf
 ln -sf /etc/nginx/sites-available/alumni.conf /etc/nginx/sites-enabled/alumni.conf
 rm -f /etc/nginx/sites-enabled/default

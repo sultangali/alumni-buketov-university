@@ -9,6 +9,7 @@ import { Apply } from '../screens/Apply'
 import { Access } from '../screens/Access'
 import { Moderator } from '../screens/Moderator'
 import { Admin } from '../screens/Admin'
+import { SubmissionReview } from '../screens/SubmissionReview'
 
 export function ScreenRouter() {
   const { route } = useApp()
@@ -35,6 +36,8 @@ export function ScreenRouter() {
       return <Access />
     case 'mod':
       return <Moderator />
+    case 'submission':
+      return <SubmissionReview id={route.id} />
     case 'admin':
       return <Admin />
     default:

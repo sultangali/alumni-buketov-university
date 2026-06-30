@@ -19,6 +19,8 @@ const MediaSchema = new Schema(
   {
     name: { type: String },
     kind: { type: String },
+    // Served path of the uploaded file, e.g. "/media/photo-123.jpg".
+    url: { type: String },
   },
   { _id: false }
 );

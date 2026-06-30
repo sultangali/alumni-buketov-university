@@ -1,7 +1,8 @@
 import { useState, type CSSProperties, type ReactNode } from 'react'
 import { useApp } from '../AppContext'
 import { TEACH } from '../data/records'
-import { alu, avGrad, fac, gallery, initials, person, profileGrad, seg, type GalleryTile } from '../lib/logic'
+import { alu, avGrad, fac, gallery, initials, mediaGallery, person, profileGrad, seg, type GalleryTile } from '../lib/logic'
+import { mediaSrc } from '../lib/api'
 import type { PersonKind, Route } from '../types'
 import { Icon, type IconName } from '../components/icons'
 
@@ -68,8 +69,11 @@ export function Profile({ id }: { id: string }) {
     .filter((x): x is Linked => Boolean(x))
 
   const awards = (p.awards || []).map(L)
+  // Prefer the record's real uploaded media; fall back to the deterministic
+  // placeholder gallery for seeded records that have none.
+  const uploaded = (p.media || []).filter((m) => m.url)
+  const allTiles = uploaded.length ? mediaGallery(L, uploaded) : gallery(L, GALLERY_SEED[p.kind])
   // one media set, split into the active tab: 'play' tiles are videos, the rest photos
-  const allTiles = gallery(L, GALLERY_SEED[p.kind])
   const tiles = allTiles.filter((g) => (g.icon === 'play') === (media === 'videos'))
   const pill = p.badge ? L(p.badge) : String(p.year)
 
@@ -130,17 +134,25 @@ export function Profile({ id }: { id: string }) {
     color: 'var(--c-ink2)',
   }
 
-  // shared monogram "photo" background (large faint initials + soft highlight)
-  const photoBg = (mono: number) => (
-    <>
-      <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: mono, color: 'rgba(255,255,255,.17)', lineHeight: 1 }}>
-          {initials(p.name)}
-        </span>
-      </div>
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 30% 16%, rgba(255,255,255,.18), transparent 55%)' }} />
-    </>
-  )
+  // Profile photo: real uploaded image when present, else a monogram block
+  // (large faint initials + soft highlight).
+  const photoBg = (mono: number) =>
+    p.photoUrl ? (
+      <img
+        src={mediaSrc(p.photoUrl)}
+        alt={L(p.name)}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+    ) : (
+      <>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: mono, color: 'rgba(255,255,255,.17)', lineHeight: 1 }}>
+            {initials(p.name)}
+          </span>
+        </div>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 30% 16%, rgba(255,255,255,.18), transparent 55%)' }} />
+      </>
+    )
 
   const renderLinked = (x: Linked, withClassOf: boolean, key: number) => (
     <button key={key} className="press" onClick={x.open ?? undefined} style={pbtn}>
@@ -414,6 +426,12 @@ export function Profile({ id }: { id: string }) {
                   padding: 0,
                 }}
               >
+                {g.url && g.kind === 'image' && (
+                  <img src={mediaSrc(g.url)} alt={g.label} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                )}
+                {g.url && g.kind === 'video' && (
+                  <video src={mediaSrc(g.url)} muted playsInline preload="metadata" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                )}
                 <div
                   style={{
                     position: 'absolute',
@@ -422,6 +440,9 @@ export function Profile({ id }: { id: string }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: 'rgba(255,255,255,.9)',
+                    // For real photos, only overlay the play badge on videos.
+                    ...(g.url && g.kind === 'image' ? { display: 'none' } : null),
+                    ...(g.url && g.kind === 'video' ? { background: 'rgba(0,0,0,.25)' } : null),
                   }}
                 >
                   <Icon name={g.icon as IconName} size={26} />
@@ -547,9 +568,17 @@ function Lightbox({ tiles, index, onClose, onIndex }: { tiles: GalleryTile[]; in
           onClick={(e) => e.stopPropagation()}
           style={{ position: 'relative', flex: 1, maxWidth: 'min(92%, 900px)', maxHeight: '100%', aspectRatio: '4 / 3', borderRadius: 16, overflow: 'hidden', background: t.grad, boxShadow: '0 30px 90px rgba(0,0,0,.6)' }}
         >
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,.92)' }}>
-            <Icon name={t.icon as IconName} size={72} />
-          </div>
+          {t.url && t.kind === 'image' && (
+            <img src={mediaSrc(t.url)} alt={t.label} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', background: '#05090f' }} />
+          )}
+          {t.url && t.kind === 'video' && (
+            <video src={mediaSrc(t.url)} controls autoPlay playsInline style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', background: '#05090f' }} />
+          )}
+          {!t.url && (
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,.92)' }}>
+              <Icon name={t.icon as IconName} size={72} />
+            </div>
+          )}
           <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '16px 20px', background: 'linear-gradient(transparent, rgba(0,0,0,.6))', color: '#fff', fontSize: 'var(--t-sm)', fontWeight: 600 }}>
             {t.label}
           </div>
@@ -564,7 +593,13 @@ function Lightbox({ tiles, index, onClose, onIndex }: { tiles: GalleryTile[]; in
             aria-label={`item ${k + 1}`}
             style={{ position: 'relative', width: 60, height: 46, flex: '0 0 auto', borderRadius: 8, overflow: 'hidden', background: th.grad, border: k === index ? '2px solid #fff' : '2px solid transparent', opacity: k === index ? 1 : 0.55, cursor: 'pointer', padding: 0 }}
           >
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,.85)' }}>
+            {th.url && th.kind === 'image' && (
+              <img src={mediaSrc(th.url)} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            )}
+            {th.url && th.kind === 'video' && (
+              <video src={mediaSrc(th.url)} muted playsInline preload="metadata" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            )}
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,.85)', ...(th.url && th.kind === 'image' ? { display: 'none' } : null) }}>
               <Icon name={th.icon as IconName} size={14} />
             </div>
           </button>

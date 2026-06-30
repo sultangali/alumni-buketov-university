@@ -26,6 +26,14 @@ export interface Faculty {
   depts: Dept[]
 }
 
+/** An uploaded image or video attached to a profile. */
+export interface MediaItem {
+  name: string
+  kind: 'image' | 'video'
+  /** Served path/URL of the uploaded file (e.g. "/media/x.jpg"). */
+  url?: string
+}
+
 export interface Alumnus {
   id: string
   fac: string
@@ -42,6 +50,12 @@ export interface Alumnus {
   awards: Loc[]
   mentors: string[]
   students: string[]
+  /** Optional uploaded profile photo + gallery (staff-added records). */
+  photoUrl?: string
+  media?: MediaItem[]
+  /** Authorship — staff account that created this record, and when (ISO). */
+  createdBy?: string
+  createdAt?: string
 }
 
 export interface Teacher {
@@ -83,6 +97,9 @@ export interface Person {
   /** Alumni-only continuity links. */
   mentors?: string[]
   students?: string[]
+  /** Optional uploaded profile photo + gallery (staff-added records). */
+  photoUrl?: string
+  media?: MediaItem[]
 }
 
 /** A self-submitted alumni application awaiting moderation. */
@@ -94,12 +111,12 @@ export interface Submission {
   spec: string
   pos: string
   bio: string
-  status: 'review'
+  status: 'review' | 'published' | 'rejected'
   submittedAt: string
   mentor?: string
   students?: string
   photoUrl?: string
-  media?: { name: string; kind: 'image' | 'video' }[]
+  media?: MediaItem[]
 }
 
 export interface AuditEntry {
@@ -118,6 +135,19 @@ export interface Moderator {
   status: string
 }
 
+/** A real, admin-managed moderator account returned by /api/moderators. */
+export interface ModeratorAccount {
+  id: string
+  username: string
+  fac: string
+  scope?: Loc
+  status: 'active' | 'suspended'
+  /** Live progress: published alumni in their faculty. */
+  records: number
+  /** Submissions awaiting their review. */
+  pending: number
+}
+
 export type CollectionKind = 'teachers' | 'laureates' | 'veterans'
 
 export type Route =
@@ -126,6 +156,7 @@ export type Route =
   | { name: 'faculty'; fac: string }
   | { name: 'facAlumni'; fac: string }
   | { name: 'alumni'; id: string }
+  | { name: 'submission'; id: string }
   | { name: 'teachers' }
   | { name: 'laureates' }
   | { name: 'veterans' }

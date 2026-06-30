@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import type { Alumnus, CollectionKind, Faculty, Lang, Loc, Person } from '../types'
+import type { Alumnus, CollectionKind, Faculty, Lang, Loc, MediaItem, Person } from '../types'
 import { ALU, FAC, LAUREATES, TEACHERS, VETERANS } from '../data/records'
 
 // ---- localization ----------------------------------------------------------
@@ -41,6 +41,8 @@ export const alumnusToPerson = (a: Alumnus): Person => ({
   awards: a.awards,
   mentors: a.mentors,
   students: a.students,
+  photoUrl: a.photoUrl,
+  media: a.media,
 })
 
 const CATEGORY_PEOPLE: Person[] = [...TEACHERS, ...LAUREATES, ...VETERANS]
@@ -85,6 +87,26 @@ export interface GalleryTile {
   grad: string
   label: string
   icon: string
+  /** When set, the tile shows a real uploaded image/video, not a placeholder. */
+  url?: string
+  kind?: 'image' | 'video'
+}
+
+/** Real gallery tiles built from a record's uploaded media. */
+export function mediaGallery(L: Localize, media: MediaItem[]): GalleryTile[] {
+  const labels: Loc = { ru: 'Архив', kz: 'Мұрағат', en: 'Archive' }
+  return media
+    .filter((m) => m.url)
+    .map((m, i) => {
+      const hue = 47 + i * 23
+      return {
+        grad: `linear-gradient(150deg, hsl(${hue % 360} 42% ${34 + i * 4}%), hsl(${(hue + 40) % 360} 38% 22%))`,
+        label: m.name || `${L(labels)} · ${i + 1}`,
+        icon: m.kind === 'video' ? 'play' : 'image',
+        url: m.url,
+        kind: m.kind,
+      }
+    })
 }
 
 /** Deterministic placeholder gallery, seeded per screen type (faculty=2,
@@ -111,6 +133,7 @@ const STATUS: Record<string, { l: Loc; c: string; b: string }> = {
   review: { l: { ru: 'На проверке', kz: 'Тексеруде', en: 'In review' }, c: '#c2820f', b: 'rgba(194,130,15,.16)' },
   active: { l: { ru: 'Активен', kz: 'Белсенді', en: 'Active' }, c: '#1f8a5b', b: 'rgba(31,138,91,.14)' },
   pending: { l: { ru: 'Ожидает', kz: 'Күтуде', en: 'Pending' }, c: '#c2820f', b: 'rgba(194,130,15,.16)' },
+  suspended: { l: { ru: 'Заблокирован', kz: 'Бұғатталған', en: 'Suspended' }, c: '#b3261e', b: 'rgba(179,38,30,.12)' },
 }
 
 export interface StatusMeta {

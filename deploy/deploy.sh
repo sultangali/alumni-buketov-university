@@ -17,8 +17,14 @@ DOMAIN="${DOMAIN:?set DOMAIN=your.domain.kz}"
 APP_USER="${APP_USER:-alumni}"
 APP_DIR="${APP_DIR:-/opt/alumni}"
 REPO="${REPO:-$APP_DIR/app}"
-# Frontend talks to the same origin; nginx proxies /api and /media to the backend.
-API_BASE="${API_BASE:-https://$DOMAIN}"
+# Frontend talks to the SAME ORIGIN (empty base => relative /api and /media).
+# This is what lets one build work both on the public domain AND on the LAN IP
+# the info-kiosk uses; nginx proxies /api and /media to the backend either way.
+API_BASE="${API_BASE-}"
+# Where nginx serves the static frontend from (see deploy/nginx/alumni-app.conf).
+WEB_ROOT="${WEB_ROOT:-/var/www/alumni}"
+# Which frontend to publish to WEB_ROOT (V2 = primary editorial build).
+WEB_VARIANT="${WEB_VARIANT:-V2}"
 
 PULL=0; SEED=0
 for a in "$@"; do case "$a" in --pull) PULL=1;; --seed) SEED=1;; esac; done
@@ -57,13 +63,20 @@ if [[ "$SEED" == 1 ]]; then
   run_as "cd '$REPO/server' && npm run seed"
 fi
 
-log "frontend builds (VITE_API_URL=$API_BASE)"
+log "frontend builds (same-origin: VITE_API_URL='${API_BASE}')"
 for V in V2 V1; do
   if [[ -d "$REPO/$V/app" ]]; then
     run_as "cd '$REPO/$V/app' && npm ci && VITE_API_URL='$API_BASE' npm run build"
     echo "  built $V -> $REPO/$V/app/dist"
   fi
 done
+
+log "publish $WEB_VARIANT to $WEB_ROOT"
+mkdir -p "$WEB_ROOT"
+# --delete keeps the web root in sync with the fresh build (drops stale assets)
+rsync -a --delete "$REPO/$WEB_VARIANT/app/dist/" "$WEB_ROOT/"
+chown -R "$APP_USER:$APP_USER" "$WEB_ROOT"
+echo "  published $WEB_VARIANT/app/dist -> $WEB_ROOT"
 
 log "restart backend service"
 systemctl restart alumni-api.service

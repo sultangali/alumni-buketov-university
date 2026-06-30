@@ -1,14 +1,25 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 import mongoose from 'mongoose';
 import { connectDb } from '../db';
+import {
+  ADMIN_USERNAME,
+  ADMIN_WEEKS,
+  currentEntry,
+  generateWeeklyPasswords,
+  toCsv,
+  toHashedEntries,
+  todayStr,
+} from '../auth/weeklyPasswords';
 import { Faculty } from '../models/Faculty';
 import { Person } from '../models/Person';
 import { TeacherRef } from '../models/TeacherRef';
 import { Audit } from '../models/Audit';
 import { Moderator } from '../models/Moderator';
 import { StaffUser } from '../models/StaffUser';
+import { Submission } from '../models/Submission';
 
 interface SeedData {
   FAC: any[];
@@ -38,15 +49,15 @@ async function run() {
     Audit.deleteMany({}),
     Moderator.deleteMany({}),
     StaffUser.deleteMany({}),
+    Submission.deleteMany({}),
   ]);
 
   // Faculties.
   const faculties = await Faculty.insertMany(data.FAC);
 
-  // People: alumni (kind:'alumnus') + teachers/laureates/veterans (kind already set).
-  const alumni = data.ALU.map((a) => ({ ...a, kind: 'alumnus' }));
+  // People: only the honoured collections (teachers/laureates/veterans) are
+  // seeded. No test alumni — moderators populate their own faculty's alumni.
   const people = await Person.insertMany([
-    ...alumni,
     ...data.TEACHERS,
     ...data.LAUREATES,
     ...data.VETERANS,
@@ -59,24 +70,32 @@ async function run() {
   });
   const refs = await TeacherRef.insertMany(teacherRefs);
 
-  const audits = await Audit.insertMany(data.AUDIT);
-  const mods = await Moderator.insertMany(data.MODS);
+  // No test audit log — the admin audit is derived from real record authorship.
 
-  // Staff users.
-  const adminHash = await bcrypt.hash('admin123', 10);
-  const modHash = await bcrypt.hash('moder123', 10);
-  await StaffUser.insertMany([
-    { username: 'admin', passwordHash: adminHash, role: 'admin' },
-    { username: 'moderator', passwordHash: modHash, role: 'moderator', fac: 'mit' },
+  // Staff users. Only the admin account is seeded — the admin creates and
+  // manages moderators from the panel, so no test moderators are pre-seeded.
+  // The admin (login: alumni_admin) uses weekly-rotating passwords delivered
+  // as a dated CSV; the static passwordHash is an unused throwaway.
+  const weeks = generateWeeklyPasswords(ADMIN_WEEKS, new Date());
+  const weeklyHashes = await toHashedEntries(weeks);
+  const throwaway = await bcrypt.hash(crypto.randomBytes(24).toString('hex'), 10);
+  const staff = await StaffUser.insertMany([
+    { username: ADMIN_USERNAME, passwordHash: throwaway, role: 'admin', weeklyPasswords: weeklyHashes },
   ]);
+
+  const csvPath = path.resolve(__dirname, '../../admin-passwords.csv');
+  fs.writeFileSync(csvPath, toCsv(weeks), 'utf-8');
+  const current = currentEntry(weeks, todayStr());
 
   console.log('[seed] inserted:');
   console.log(`  faculties:   ${faculties.length}`);
-  console.log(`  people:      ${people.length} (alumni ${alumni.length}, teachers ${data.TEACHERS.length}, laureates ${data.LAUREATES.length}, veterans ${data.VETERANS.length})`);
+  console.log(`  people:      ${people.length} (no alumni, teachers ${data.TEACHERS.length}, laureates ${data.LAUREATES.length}, veterans ${data.VETERANS.length})`);
   console.log(`  teacherrefs: ${refs.length}`);
-  console.log(`  audits:      ${audits.length}`);
-  console.log(`  moderators:  ${mods.length}`);
-  console.log(`  staffusers:  2 (admin/admin123, moderator/moder123)`);
+  console.log(`  staffusers:  ${staff.length} (login: ${ADMIN_USERNAME}, ${ADMIN_WEEKS} weekly passwords)`);
+  console.log(`  admin CSV:   ${csvPath}`);
+  if (current) {
+    console.log(`  this week:   ${ADMIN_USERNAME} / ${current.password}  (valid ${current.start} … ${current.end})`);
+  }
 
   await mongoose.disconnect();
   process.exit(0);

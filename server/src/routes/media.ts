@@ -17,6 +17,7 @@ const ALLOWED_TYPES: Record<string, string> = {
   'video/mp4': '.mp4',
   'video/webm': '.webm',
   'video/ogg': '.ogv',
+  'video/quicktime': '.mov',
 };
 
 const storage = multer.diskStorage({

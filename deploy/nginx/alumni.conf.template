@@ -1,67 +1,35 @@
 # nginx site for the Alumni Hall of Fame.
-# setup-server.sh substitutes __DOMAIN__ and __APP_DIR__ and installs this as
-# /etc/nginx/sites-available/alumni.conf. `certbot --nginx -d __DOMAIN__` then
-# adds the TLS listener and an HTTP->HTTPS redirect automatically.
+# setup-server.sh substitutes __DOMAIN__ and installs this as
+# /etc/nginx/sites-available/alumni.conf (it also installs the shared snippet
+# /etc/nginx/snippets/alumni-app.conf, which both blocks below include).
+#
+# Two ways in, same site, same backend:
+#   1) Public:  https://__DOMAIN__          (TLS added by certbot)
+#   2) Kiosk:   http://<server-LAN-IP>/      (plain HTTP on the university network)
+#
+# Static files are served from /var/www/alumni (copy the frontend `dist/` there).
 
+# ---- 1) Public site: the university domain --------------------------------
 server {
     listen 80;
     listen [::]:80;
     server_name __DOMAIN__;
 
-    # --- primary frontend: V2 (strict editorial), built to dist ---
-    root __APP_DIR__/app/V2/app/dist;
-    index index.html;
+    include snippets/alumni-app.conf;
 
-    # upload size cap (matches the API's 25MB media limit, + headroom)
-    client_max_body_size 30m;
-
-    # gzip
-    gzip on;
-    gzip_types text/css application/javascript application/json image/svg+xml;
-    gzip_min_length 1024;
-
-    # security headers
-    add_header X-Content-Type-Options nosniff always;
-    add_header X-Frame-Options SAMEORIGIN always;
-    add_header Referrer-Policy strict-origin-when-cross-origin always;
-
-    # hashed Vite assets — cache hard
-    location /assets/ {
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-        try_files $uri =404;
-    }
-
-    # API + uploaded media -> Node backend on localhost
-    location /api/ {
-        proxy_pass http://127.0.0.1:4000;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-    location /media/ {
-        proxy_pass http://127.0.0.1:4000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-    # SPA fallback (the app routes in memory, no server routes)
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+    # `sudo certbot --nginx -d __DOMAIN__` upgrades THIS block to HTTPS (adds a
+    # listen 443 ssl block) and an HTTP->HTTPS redirect — automatically.
 }
 
-# --- OPTIONAL: serve the V1 (heritage) build on its own subdomain ----------
-# Point a DNS record v1.__DOMAIN__ at this server, then run:
-#   certbot --nginx -d v1.__DOMAIN__
-# server {
-#     listen 80;
-#     server_name v1.__DOMAIN__;
-#     root __APP_DIR__/app/V1/app/dist;
-#     index index.html;
-#     location /api/   { proxy_pass http://127.0.0.1:4000; proxy_set_header Host $host; proxy_set_header X-Forwarded-Proto $scheme; }
-#     location /media/ { proxy_pass http://127.0.0.1:4000; proxy_set_header Host $host; proxy_set_header X-Forwarded-Proto $scheme; }
-#     location /       { try_files $uri $uri/ /index.html; }
-# }
+# ---- 2) Local kiosk access: reach the server by its LAN IP ----------------
+# This is the DEFAULT server: it answers any host that is not the domain above,
+# i.e. the bare server IP the info-kiosk opens on the university network. It
+# stays plain HTTP with no redirect, so the kiosk keeps working on the LAN even
+# with no internet and no TLS certificate.
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+
+    include snippets/alumni-app.conf;
+}

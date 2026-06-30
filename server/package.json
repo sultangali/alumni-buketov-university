@@ -7,7 +7,8 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "seed": "tsx src/seed/seed.ts"
+    "seed": "tsx src/seed/seed.ts",
+    "admin:passwords": "tsx src/scripts/genAdminPasswords.ts"
   },
   "license": "MIT",
   "dependencies": {

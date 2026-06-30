@@ -4,11 +4,16 @@ Single-server setup: **MongoDB 8** + **Node 20 backend** (systemd) + **nginx** (
 frontend + reverse proxy) + **certbot** TLS.
 
 ```
-Internet ──443/80──► nginx ──► /          static V2 build (Vite dist)
-                          ├──► /api/      proxy → 127.0.0.1:4000 (Node/Express)
-                          └──► /media/    proxy → 127.0.0.1:4000 (uploads, inert)
-                                                 └► MongoDB 127.0.0.1:27017
+Public  (domain)  ─443/80─┐
+                          ├─► nginx ──► /        static build  → /var/www/alumni
+Kiosk (LAN, by IP) ─80────┘         ├──► /api/   proxy → 127.0.0.1:4000 (Node/Express)
+                                    └──► /media/ proxy → 127.0.0.1:4000 (uploads)
+                                                        └► MongoDB 127.0.0.1:27017
 ```
+
+The same site is reachable two ways and the frontend is built **same-origin**
+(`VITE_API_URL=''`), so `/api` and `/media` always resolve against whichever host
+served the page — no rebuild needed for the kiosk. See **Kiosk (local access)** below.
 
 ## 0. Prerequisites
 - A fresh Ubuntu 24.04 server, root/sudo access, a domain (e.g. `alumni.example.kz`)
@@ -38,9 +43,14 @@ installs the `alumni-api` systemd service and the nginx site; enables the firewa
 sudo DOMAIN=alumni.example.kz bash /opt/alumni/app/deploy/deploy.sh --seed
 ```
 - Installs deps, builds the backend (`tsc`) and the frontends (V2, V1) with
-  `VITE_API_URL=https://<DOMAIN>` so they call the same origin.
+  `VITE_API_URL=''` (**same-origin** — relative `/api` and `/media`).
+- Publishes the primary build (V2) to `/var/www/alumni` (override with
+  `WEB_VARIANT=V1` or `WEB_ROOT=/some/path`).
 - Generates `server/.env` with a random `JWT_SECRET` on first run.
-- `--seed` loads the sample dataset into MongoDB (**destructive** — omit on updates).
+- `--seed` resets MongoDB to a clean base (**destructive** — omit on updates).
+  There are **no test alumni**: moderators populate their own faculty. It also
+  generates the admin's weekly passwords and writes `server/admin-passwords.csv`
+  (see **Admin sign-in** below).
 - Starts/reloads the `alumni-api` service and nginx.
 
 ## 3. Enable HTTPS
@@ -65,24 +75,63 @@ sudo DOMAIN=alumni.example.kz bash /opt/alumni/app/deploy/deploy.sh --pull
 (`--pull` does `git pull`; rebuilds backend + frontends; restarts services. No
 `--seed`, so data is preserved.)
 
-## Staff accounts (seeded)
-`admin` / `admin123` · `moderator` / `moder123` — **change these for production**
-(re-hash with bcrypt and update the `staffusers` collection, or adjust the seed).
+## Admin sign-in (weekly-rotating passwords)
+The single admin account logs in as **`alumni_admin`**. There is no static
+password — instead a year of **weekly passwords** is generated, and the one valid
+for the current week (Mon–Sun) is accepted. The full schedule is written to:
+
+```
+server/admin-passwords.csv      # columns: week, start_date, end_date, password
+```
+
+Give this CSV to the administrator and keep it secret (it is git-ignored). Each
+week, look up the row whose date range covers today and use that password. To
+regenerate the schedule at any time (e.g. a new year, or if the CSV leaks):
+
+```bash
+cd /opt/alumni/app/server && npm run admin:passwords      # rewrites the CSV, prints this week's password
+```
+
+The seed also prints the current week's password on the console. Moderators are
+**not** seeded — the admin creates them in the panel → **Moderators** tab
+(reassign faculty, reset password, suspend/activate, delete; each shows live
+progress). Suspended accounts are refused at login. Every alumnus a moderator
+adds is stamped with their account and appears in the admin **Audit**.
+
+## Kiosk (local access)
+The info-kiosk inside the university opens the site over the **LAN by the server's
+IP**, in parallel with the public domain. The nginx site has two `server` blocks
+(`nginx/alumni.conf.template`):
+
+1. `server_name <DOMAIN>` — the public site (HTTPS via certbot).
+2. `default_server` on port 80 — answers the bare **server IP**, plain HTTP, no
+   redirect, so the kiosk keeps working on the LAN even with no internet/cert.
+
+Because the frontend is built same-origin, the kiosk's `/api` and `/media` calls
+hit the same server over the LAN — no domain or internet required. Point the kiosk
+browser at `http://<server-LAN-IP>/` (find it with `ip -4 addr`; ideally give the
+server a static LAN IP / DHCP reservation). To force the kiosk's full-screen
+layout add `?preview=kiosk` or toggle it from the header.
+
+> One `default_server` per port only — `setup-server.sh` removes nginx's stock
+> `default` site so this block owns port 80 for non-domain hosts.
 
 ## Optional: serve V1 (heritage) too
-Add DNS `v1.<DOMAIN>`, uncomment the second `server { }` block in
-`nginx/alumni.conf.template` (re-run setup or edit the installed site), then
-`sudo certbot --nginx -d v1.<DOMAIN>`.
+Publish V1 instead with `WEB_VARIANT=V1`, or to a second root with
+`WEB_ROOT=/var/www/alumni-v1` and a matching nginx `server` block + DNS.
 
 ## Hardening checklist (recommended for production)
 - **MongoDB auth**: enable `security.authorization` in `/etc/mongod.conf`, create
   an app user, and point `MONGO_URI` at `mongodb://user:pass@127.0.0.1:27017/alumni`.
-- **Change seeded staff passwords** (above).
+- **Keep `server/admin-passwords.csv` secret** (git-ignored); rotate with
+  `npm run admin:passwords` if it leaks. No static admin password exists.
 - The backend already binds behind nginx and `ufw` closes :4000 externally;
   for extra defence you can bind it to `127.0.0.1` only.
-- The `/media` endpoint already serves uploads as inert attachments
-  (`Content-Disposition: attachment`, `nosniff`, CSP sandbox) and rejects SVG/active
-  content; logins reject non-string credentials (no NoSQL operator injection).
+- The `/media` endpoint serves uploads **inline** (`Content-Disposition: inline`,
+  `X-Content-Type-Options: nosniff`) and the upload route accepts only inert
+  raster image / video types (png/jpg/gif/webp/avif/mp4/webm/ogv/mov — no
+  SVG/HTML), so images and video render but cannot carry scripts. Logins reject
+  non-string credentials (no NoSQL operator injection).
 - Update the QR target in the Apply form (`UPLOAD_URL` in `*/app/src/screens/Apply.tsx`)
   to your real domain.
 - Set up backups: `mongodump` on a cron, and back up `server/uploads/`.
@@ -90,8 +139,9 @@ Add DNS `v1.<DOMAIN>`, uncomment the second `server { }` block in
 ## Files
 | File | Purpose |
 |---|---|
-| `setup-server.sh` | one-time provisioning (packages, user, service, nginx, ufw) |
-| `deploy.sh` | build + (re)deploy backend & frontends, restart services |
+| `setup-server.sh` | one-time provisioning (packages, user, `/var/www/alumni`, service, nginx, ufw) |
+| `deploy.sh` | build (same-origin) + publish frontend to `/var/www/alumni` + restart services |
 | `systemd/alumni-api.service` | backend service unit (hardened) |
-| `nginx/alumni.conf.template` | nginx site (static + `/api` `/media` proxy) |
+| `nginx/alumni.conf.template` | nginx site: public-domain + local-IP (kiosk) server blocks |
+| `nginx/alumni-app.conf` | shared snippet (root, SPA fallback, `/api` `/media` proxy) — both blocks `include` it |
 | `server.env.example` | backend env reference |

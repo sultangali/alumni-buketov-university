@@ -5,6 +5,7 @@ import { connectDb } from './db';
 import contentRoutes from './routes/content';
 import authRoutes from './routes/auth';
 import submissionRoutes from './routes/submissions';
+import moderatorRoutes from './routes/moderators';
 import mediaRoutes, { uploadsDir } from './routes/media';
 
 export function createApp() {
@@ -17,17 +18,19 @@ export function createApp() {
   app.use('/api', contentRoutes);
   app.use('/api/auth', authRoutes);
   app.use('/api/submissions', submissionRoutes);
+  app.use('/api/moderators', moderatorRoutes);
   app.use('/api/media', mediaRoutes);
 
-  // Serve uploads as inert downloads: never sniff the type, never render
-  // inline, and sandbox via CSP — defence-in-depth against stored XSS.
+  // Serve uploads inline so profile photos / media render in <img>/<video>.
+  // Safe because the upload route whitelists only inert raster image and
+  // video MIME types (no SVG/HTML, which could carry scripts), and we send
+  // X-Content-Type-Options: nosniff so the browser honours that type.
   app.use(
     '/media',
     express.static(uploadsDir, {
       setHeaders: (res) => {
-        res.setHeader('Content-Disposition', 'attachment');
+        res.setHeader('Content-Disposition', 'inline');
         res.setHeader('X-Content-Type-Options', 'nosniff');
-        res.setHeader('Content-Security-Policy', "default-src 'none'; sandbox");
       },
     }),
   );

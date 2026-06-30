@@ -3,3 +3,5 @@ dist
 .env
 uploads/*
 !uploads/.gitkeep
+# Contains plaintext admin passwords — never commit
+admin-passwords.csv

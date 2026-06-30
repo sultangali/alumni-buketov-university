@@ -180,7 +180,7 @@ export function Access() {
           </button>
 
           <div style={{ marginTop: 14, fontSize: 'var(--t-2xs)', color: 'var(--c-ink2)', lineHeight: 1.5 }}>
-            {ui.accessDemo}: <b>moderator / moder123</b> · <b>admin / admin123</b>
+            {ui.accessHint}
           </div>
         </div>
       </div>
