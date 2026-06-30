@@ -1,8 +1,9 @@
-// API origin. In production set VITE_API_URL='' (empty) so all /api and /media
-// requests are SAME-ORIGIN relative — the page works identically whether it is
-// opened via the public domain or the server's LAN IP (the info-kiosk), with
-// nginx proxying both to the backend. Unset (dev) falls back to localhost.
-export const API_URL = (import.meta.env.VITE_API_URL as string | undefined) ?? 'http://localhost:4000'
+// API origin. Production defaults to SAME-ORIGIN ('' → relative /api and /media),
+// so one build serves both the public domain and the server's LAN IP (the
+// info-kiosk), with nginx proxying both to the backend. Dev talks to the local
+// backend. Set VITE_API_URL to override (rarely needed).
+const ENV_API = import.meta.env.VITE_API_URL as string | undefined
+export const API_URL = ENV_API ?? (import.meta.env.DEV ? 'http://localhost:4000' : '')
 
 /**
  * Resolve a stored media path to a loadable URL. Server uploads are stored as
