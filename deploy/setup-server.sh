@@ -73,9 +73,8 @@ mkdir -p /var/www/alumni
 chown -R "$APP_USER:$APP_USER" /var/www/alumni
 
 log "nginx site (public domain + local-IP kiosk)"
-install -m 644 "$(dirname "$0")/nginx/alumni-app.conf" /etc/nginx/snippets/alumni-app.conf
-sed "s/__DOMAIN__/${DOMAIN}/g" \
-  "$(dirname "$0")/nginx/alumni.conf.template" > /etc/nginx/sites-available/alumni.conf
+# Single self-contained config with the real domain/IPs already filled in.
+install -m 644 "$(dirname "$0")/nginx/alumni.conf" /etc/nginx/sites-available/alumni.conf
 ln -sf /etc/nginx/sites-available/alumni.conf /etc/nginx/sites-enabled/alumni.conf
 rm -f /etc/nginx/sites-enabled/default
 nginx -t && systemctl reload nginx

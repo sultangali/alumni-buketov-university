@@ -100,18 +100,20 @@ adds is stamped with their account and appears in the admin **Audit**.
 
 ## Kiosk (local access)
 The info-kiosk inside the university opens the site over the **LAN by the server's
-IP**, in parallel with the public domain. The nginx site has two `server` blocks
-(`nginx/alumni.conf.template`):
+IP**, in parallel with the public domain. The nginx site (`nginx/alumni.conf` —
+a single ready-to-use file with the real domain/IPs filled in) has two `server`
+blocks:
 
-1. `server_name <DOMAIN>` — the public site (HTTPS via certbot).
-2. `default_server` on port 80 — answers the bare **server IP**, plain HTTP, no
-   redirect, so the kiosk keeps working on the LAN even with no internet/cert.
+1. `server_name alumni.buketov.edu.kz` — the public site (HTTPS via certbot).
+2. `default_server` on port 80 — answers the bare **server IP** (LAN
+   `192.168.42.40`, external `188.0.155.190`), plain HTTP, no redirect, so the
+   kiosk keeps working on the LAN even with no internet/cert.
 
 Because the frontend is built same-origin, the kiosk's `/api` and `/media` calls
 hit the same server over the LAN — no domain or internet required. Point the kiosk
-browser at `http://<server-LAN-IP>/` (find it with `ip -4 addr`; ideally give the
-server a static LAN IP / DHCP reservation). To force the kiosk's full-screen
-layout add `?preview=kiosk` or toggle it from the header.
+browser at **`http://192.168.42.40/?preview=kiosk`** (the `?preview=kiosk` starts
+the full-screen kiosk layout; it can also be toggled from the header). Give the
+server a static LAN IP / DHCP reservation so the address never changes.
 
 > One `default_server` per port only — `setup-server.sh` removes nginx's stock
 > `default` site so this block owns port 80 for non-domain hosts.
@@ -142,6 +144,5 @@ Publish V1 instead with `WEB_VARIANT=V1`, or to a second root with
 | `setup-server.sh` | one-time provisioning (packages, user, `/var/www/alumni`, service, nginx, ufw) |
 | `deploy.sh` | build (same-origin) + publish frontend to `/var/www/alumni` + restart services |
 | `systemd/alumni-api.service` | backend service unit (hardened) |
-| `nginx/alumni.conf.template` | nginx site: public-domain + local-IP (kiosk) server blocks |
-| `nginx/alumni-app.conf` | shared snippet (root, SPA fallback, `/api` `/media` proxy) — both blocks `include` it |
+| `nginx/alumni.conf` | nginx site (one file): public-domain + local-IP (kiosk) server blocks, values filled in |
 | `server.env.example` | backend env reference |
