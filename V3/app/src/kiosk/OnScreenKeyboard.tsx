@@ -1,0 +1,35 @@
+import type { CSSProperties } from 'react'
+import { useKeyboard } from './keyboard'
+
+const RU = ['ЙЦУКЕНГШЩЗХ', 'ФЫВАПРОЛДЖЭ', 'ЯЧСМИТЬБЮ']
+const KZ = ['ӘІҢҒҮҰҚӨҺ', ...RU]
+const EN = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']
+
+export function OnScreenKeyboard() {
+  const kb = useKeyboard()
+  if (!kb.active) return null
+  const rows = kb.layout === 'ru' ? RU : kb.layout === 'kz' ? KZ : EN
+
+  const key: CSSProperties = { minWidth: 0, padding: 0, height: 52, flex: 1, maxWidth: 56, border: '1px solid var(--c-line)', borderRadius: 'var(--r)', background: 'var(--c-surface)', color: 'var(--c-ink)', fontSize: 18, fontWeight: 600, cursor: 'pointer', fontFamily: 'var(--font-ui, "Inter", sans-serif)' }
+  const wide: CSSProperties = { ...key, maxWidth: 120 }
+
+  return (
+    <div className="kiosk-keyboard" style={{ position: 'relative', flexShrink: 0, zIndex: 90, background: 'var(--c-bg2)', borderTop: '1px solid var(--c-line)', padding: '10px 8px max(14px, env(safe-area-inset-bottom))', display: 'flex', flexDirection: 'column', gap: 7 }}>
+      <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
+        {'1234567890'.split('').map((d) => (<button key={d} style={key} onClick={() => kb.type(d)}>{d}</button>))}
+      </div>
+      {rows.map((r, i) => (
+        <div key={i} style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
+          {r.split('').map((c) => (<button key={c} style={key} onClick={() => kb.type(c)}>{c}</button>))}
+          {i === rows.length - 1 && (<button style={wide} onClick={kb.backspace}>⌫</button>)}
+        </div>
+      ))}
+      <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
+        <button style={wide} onClick={() => kb.setLayout(kb.layout === 'ru' ? 'kz' : kb.layout === 'kz' ? 'en' : 'ru')}>{kb.layout === 'ru' ? 'ҚАЗ' : kb.layout === 'kz' ? 'EN' : 'РУ'}</button>
+        <button style={{ ...key, maxWidth: 240 }} onClick={() => kb.type(' ')}>␣</button>
+        <button style={key} onClick={() => kb.type('@')}>@</button>
+        <button style={wide} onClick={kb.blur}>✓</button>
+      </div>
+    </div>
+  )
+}
