@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ChangeEvent, type CSSProperties } from 'react'
 import { useApp } from '../AppContext'
 import { fac } from '../lib/logic'
+import { FAC } from '../data/records'
 import { mediaSrc } from '../lib/api'
 import { Icon } from '../components/icons'
 import type { Loc, MediaItem } from '../types'
@@ -11,7 +12,7 @@ import type { Loc, MediaItem } from '../types'
  * applicant uploaded, then publishes (→ a real archive record) or rejects.
  */
 export function SubmissionReview({ id }: { id: string }) {
-  const { ui, L, back, submissions, refreshSubmissions, editSubmission, reviewSubmission } = useApp()
+  const { ui, L, back, staff, submissions, refreshSubmissions, editSubmission, reviewSubmission } = useApp()
 
   useEffect(() => {
     refreshSubmissions()
@@ -23,6 +24,7 @@ export function SubmissionReview({ id }: { id: string }) {
   const [nameRu, setNameRu] = useState('')
   const [nameEn, setNameEn] = useState('')
   const [year, setYear] = useState('')
+  const [faculty, setFaculty] = useState('')
   const [spec, setSpec] = useState('')
   const [pos, setPos] = useState('')
   const [bio, setBio] = useState('')
@@ -42,6 +44,7 @@ export function SubmissionReview({ id }: { id: string }) {
     setNameKz(sub.name.kz || '')
     setNameRu(sub.name.ru || '')
     setNameEn(sub.name.en || '')
+    setFaculty(sub.fac)
     setYear(sub.year != null ? String(sub.year) : '')
     setSpec(sub.spec || '')
     setPos(sub.pos || '')
@@ -66,6 +69,7 @@ export function SubmissionReview({ id }: { id: string }) {
     return n
   }
   const payload = () => ({
+    ...(staff?.role === 'admin' ? {fac: faculty} : {}),
     name: buildName(),
     year: year.trim() ? Number(year.trim()) || null : null,
     spec: spec.trim(),
@@ -171,6 +175,8 @@ export function SubmissionReview({ id }: { id: string }) {
         {facName} · {sub.submittedAt}
       </p>
 
+      {sub.contact && <p>{L({ru: 'Контакт заявителя (только для сотрудников)', kz: 'Өтініш берушінің байланысы (қызметкерлерге ғана)', en: 'Applicant contact (staff only)'})}: {sub.contact}</p>}
+      {staff?.role === 'admin' && <label>{ui.applyFaculty}<select value={faculty} onChange={e => setFaculty(e.target.value)}>{!FAC.some(f => f.id === faculty) && <option value={faculty}>{faculty}</option>}{FAC.map(f => <option key={f.id} value={f.id}>{L(f.name)}</option>)}</select></label>}
       {feedback && (
         <div
           style={{

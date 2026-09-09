@@ -1,0 +1,26 @@
+[
+  {
+    "name": "desktop",
+    "padding": "52px",
+    "position": "calc(100% - 18px) 50%",
+    "appearance": "none",
+    "image": "url(\"http://127.0.0.1:5183/select-chevron.svg\")",
+    "height": 48
+  },
+  {
+    "name": "portrait",
+    "padding": "52px",
+    "position": "calc(100% - 18px) 50%",
+    "appearance": "none",
+    "image": "url(\"http://127.0.0.1:5183/select-chevron.svg\")",
+    "height": 50
+  },
+  {
+    "name": "mobile",
+    "padding": "52px",
+    "position": "calc(100% - 18px) 50%",
+    "appearance": "none",
+    "image": "url(\"http://127.0.0.1:5183/select-chevron.svg\")",
+    "height": 48
+  }
+]

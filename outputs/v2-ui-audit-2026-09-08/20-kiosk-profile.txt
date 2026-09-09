@@ -1,0 +1,27 @@
+- img "Karaganda Buketov University"
+- button "Светлая":
+- button "Тёмная":
+- button "Слайдшоу":
+- button "RU"
+- button "KZ"
+- button "EN"
+- button "⇱"
+- generic: АС
+- generic: ✦ 2018
+- heading "Айдана Серикова" [level=1]
+- generic: Системный аналитик
+- text: Информационные системы
+- text: Математики и информационных технологий
+- heading "Биография" [level=2]
+- paragraph: Вымышленный тестовый профиль для локальной демонстрации. Проектирует информационные системы и описывает требования к цифровым сервисам.
+- button "Фотографии"
+- button "Видео"
+- button:
+- button:
+- button:
+- button:
+- button "‹ Назад"
+- button "Главная":
+  - text: Главная
+- button "Подать заявку":
+  - text: Подать заявку

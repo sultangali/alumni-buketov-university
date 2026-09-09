@@ -1,0 +1,49 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Персонал › Администратор
+- generic: Панель администратора
+- generic: Администратор системы
+- button "← Модератор"
+- button "Обзор"
+- button "Аудит" [active]
+- button "Модераторы"
+- generic: Пользователь
+- generic: Действие
+- generic: Объект
+- generic: Время
+- generic: local-demo-seed
+- generic: добавил(а) выпускника · Математики и информационных технологий
+- generic: Айдана Серикова
+- generic: 08.09.2026, 20:54
+- generic: local-demo-seed
+- generic: добавил(а) выпускника · Математики и информационных технологий
+- generic: Данияр Омаров
+- generic: 08.09.2026, 20:54
+- generic: local-demo-seed
+- generic: добавил(а) выпускника · Математики и информационных технологий
+- generic: Алина Ким
+- generic: 08.09.2026, 20:54
+- generic: local-demo-seed
+- generic: добавил(а) выпускника · Математики и информационных технологий
+- generic: Тимур Бекенов
+- generic: 08.09.2026, 20:54
+- generic: local-demo-seed
+- generic: добавил(а) выпускника · Математики и информационных технологий
+- generic: Мадина Сулейменова
+- generic: 08.09.2026, 20:54
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

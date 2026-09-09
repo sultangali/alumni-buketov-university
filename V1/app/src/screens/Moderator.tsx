@@ -10,6 +10,7 @@ import type { Alumnus, Loc, MediaItem } from '../types'
 const DRAFTS_KEY = 'alumni-mod-drafts'
 
 interface DraftShape {
+  fac: string
   nameKz: string
   nameRu: string
   nameEn: string
@@ -31,13 +32,13 @@ interface DraftEntry {
 }
 
 const EMPTY: DraftShape = {
-  nameKz: '', nameRu: '', nameEn: '', year: '', spec: '', pos: '', bio: '', mentor: '', students: '',
+  fac: '', nameKz: '', nameRu: '', nameEn: '', year: '', spec: '', pos: '', bio: '', mentor: '', students: '',
 }
 
 export function Moderator() {
   const {
     narrow, ui, L, go, goHome, modTab, setModTab, submissions, staff,
-    createPerson, refreshSubmissions, updatePerson, logout, uploadMedia,
+    createPerson, refreshSubmissions, updatePerson, logout, uploadMedia, uploadsPending,
   } = useApp()
 
   useEffect(() => {
@@ -194,7 +195,8 @@ export function Moderator() {
   // archive (no self-review). The review queue is only for public submissions.
   const [publishing, setPublishing] = useState(false)
   const publish = async () => {
-    if (!hasName) {
+    if (publishing || uploadsPending) return
+    if (!hasName || (!scopeFac && !form.fac)) {
       setTouched(true)
       return
     }
@@ -202,11 +204,13 @@ export function Moderator() {
     setPublishing(true)
     const err = await createPerson({
       name: buildName(),
-      fac: scopeFac || FAC[0]?.id || '',
+      fac: scopeFac || form.fac,
       year: form.year.trim() ? Number(form.year.trim()) || undefined : undefined,
       spec: toLoc(form.spec),
       pos: toLoc(form.pos),
       bio: toLoc(form.bio),
+      mentorText: form.mentor.trim(),
+      studentsText: form.students.trim(),
       photoUrl: photo || undefined,
       media: media.map((m) => ({ name: m.name, kind: m.kind, url: m.url })),
     })
@@ -597,6 +601,7 @@ export function Moderator() {
             </div>
           </div>
           {/* faculty target — alumni are always added to the moderator's faculty */}
+          {!scopeFac && <label>{ui.applyFaculty}<select aria-label={ui.applyFaculty} value={form.fac} onChange={e => setForm(f => ({...f, fac: e.target.value}))}><option value="">—</option>{FAC.map(f => <option key={f.id} value={f.id}>{L(f.name)}</option>)}</select></label>}
           {scopeFac && fc && (
             <div
               style={{
@@ -819,7 +824,7 @@ export function Moderator() {
           >
             <button
               onClick={publish}
-              disabled={publishing}
+              disabled={publishing || uploadsPending > 0}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "seed": "tsx src/seed/seed.ts",
-    "admin:passwords": "tsx src/scripts/genAdminPasswords.ts"
+    "admin:passwords": "tsx src/scripts/genAdminPasswords.ts",
+    "test": "tsx --test test/*.test.ts"
   },
   "license": "MIT",
   "dependencies": {

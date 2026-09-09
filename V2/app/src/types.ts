@@ -48,6 +48,8 @@ export interface Alumnus {
   org: Loc
   bio: Loc
   awards: Loc[]
+  mentorText?: string
+  studentsText?: string
   mentors: string[]
   students: string[]
   /** Optional uploaded profile photo + gallery (staff-added records). */
@@ -95,6 +97,8 @@ export interface Person {
   /** Sub-filter key within a collection (e.g. 'scholarship' | 'prize'). */
   tag?: string
   /** Alumni-only continuity links. */
+  mentorText?: string
+  studentsText?: string
   mentors?: string[]
   students?: string[]
   /** Optional uploaded profile photo + gallery (staff-added records). */
@@ -104,6 +108,7 @@ export interface Person {
 
 /** A self-submitted alumni application awaiting moderation. */
 export interface Submission {
+  contact?: string
   id: string
   name: Loc
   year: number | null

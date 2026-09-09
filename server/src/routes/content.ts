@@ -154,6 +154,8 @@ router.post(
       accent: '#1B5AA6',
       featured: false,
       video: false,
+      mentorText: typeof body.mentorText === 'string' ? body.mentorText : undefined,
+      studentsText: typeof body.studentsText === 'string' ? body.studentsText : undefined,
       name: body.name,
       year: Number.isFinite(Number(body.year)) ? Number(body.year) : undefined,
       spec: hasLoc(body.spec) ? body.spec : undefined,
@@ -171,7 +173,7 @@ router.post(
 
 // Staff: edit an existing person record (moderator/admin). Only a whitelist of
 // content fields can be changed; id/kind/fac are immutable here.
-const EDITABLE = ['name', 'year', 'spec', 'pos', 'org', 'bio'] as const;
+const EDITABLE = ['name', 'year', 'spec', 'pos', 'org', 'bio', 'mentorText', 'studentsText'] as const;
 router.patch(
   '/people/:id',
   requireAuth,
@@ -195,7 +197,10 @@ router.patch(
     const update: Record<string, unknown> = {};
     for (const f of EDITABLE) {
       if (f in body) {
-        if (f === 'year') {
+        if (f === 'mentorText' || f === 'studentsText') {
+          if (typeof body[f] !== 'string' || (body[f] as string).length > 20000) return res.status(400).json({ error: `invalid ${f}` });
+          update[f] = body[f];
+        } else if (f === 'year') {
           const n = Number(body.year);
           if (Number.isFinite(n)) update.year = n;
         } else if (body[f] && typeof body[f] === 'object') {

@@ -21,11 +21,14 @@ function DismissKeyboardOnRoute() {
 }
 
 export function KioskApp() {
-  const { theme, motion, route, goHome, setListQuery, setListYear } = useApp()
+  const { theme, motion, route, goHome, setListQuery, setListYear, logout } = useApp()
   const [attract, setAttract] = useState(false)
   const [search, setSearch] = useState(false)
   const [pin, setPin] = useState(false)
+  useEffect(() => { setSearch(false); setPin(false) }, [route])
   useIdle(60000, () => {
+    logout()
+    setPin(false)
     setSearch(false)
     setListQuery('')
     setListYear('all')

@@ -1,0 +1,50 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Персонал › Администратор
+- generic: Панель администратора
+- generic: Администратор системы
+- button "← Модератор"
+- button "Обзор"
+- button "Аудит"
+- button "Модераторы" [active]
+- heading "Создать модератора" [level=3]
+- generic: Логин *
+- textbox "moderator.pmi"
+- generic: Пароль *
+- textbox "••••••"
+- generic: Факультет
+- combobox:
+  - option "Математики и информационных технологий" [selected]
+  - option "Физико-технический"
+  - option "Юридический"
+  - option "Филологический"
+  - option "Биолого-географический"
+  - option "Исторический"
+  - option "Иностранных языков"
+  - option "Педагогический"
+  - option "Физической культуры и спорта"
+  - option "Философии и психологии"
+  - option "Химический"
+  - option "Экономический"
+  - option "Центр дистанционного образования"
+  - option "Колледж"
+  - option "Дополнительного образования"
+- button "Создать модератора":
+  - text: Создать модератора
+- generic: Модераторы ещё не созданы
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

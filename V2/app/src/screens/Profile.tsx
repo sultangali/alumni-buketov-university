@@ -457,6 +457,10 @@ export function Profile({ id }: { id: string }) {
         <Lightbox tiles={tiles} index={lightbox} onClose={() => setLightbox(null)} onIndex={setLightbox} />
       )}
 
+      {(p.mentorText || p.studentsText) && <div style={{ padding: '24px var(--pad)', whiteSpace: 'pre-wrap' }}>
+        {p.mentorText && <p><strong>{ui.mentors}: </strong>{p.mentorText}</p>}
+        {p.studentsText && <p><strong>{ui.students}: </strong>{p.studentsText}</p>}
+      </div>}
       {(mentors.length > 0 || students.length > 0) && (
         <div style={{ padding: '26px var(--pad) 34px' }}>
           <Heading mb={6}>{ui.mentorStudent}</Heading>

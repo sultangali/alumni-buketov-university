@@ -1,0 +1,35 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти" [active]
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Доступ к системе
+- heading "Доступ к системе" [level=1]
+- paragraph: Подайте заявку на добавление в архив или войдите как сотрудник.
+- generic: Гостям и выпускникам
+- generic: Подать заявку на запись
+- paragraph: Без авторизации — заявка попадёт на модерацию.
+- button "Подать заявку на запись →"
+- generic: Вход для персонала
+- paragraph: Авторизация доступна только сотрудникам.
+- button "Модератор"
+- button "Администратор"
+- generic: Логин
+- textbox "Логин"
+- generic: Пароль
+- textbox "Пароль"
+- button "Войти"
+- generic: Учётные данные выдаёт администратор университета.
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

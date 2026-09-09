@@ -1,0 +1,50 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Персонал › Модератор
+- generic: Режим модератора
+- generic: Модератор факультета · Администратор системы
+- button "Админ-панель →"
+- button "Мои записи"
+- button "Добавить выпускника" [active]
+- button "Черновики"
+- button "На проверке"
+- heading "Новый выпускник" [level=2]
+- generic: Заполняется модератором факультета
+- generic: Фотография
+- generic: Перетащите файл или нажмите для загрузки
+- generic: ФИО (по языкам) *
+- textbox "Қазақша"
+- textbox "Русский"
+- textbox "English"
+- generic: Год выпуска
+- textbox "2014"
+- generic: Специальность
+- textbox
+- generic: Должность и место работы
+- textbox
+- generic: Биография
+- textbox
+- generic: Научный наставник
+- textbox "Профессор Сериков А.Қ."
+- generic: Ученики
+- textbox "ФИО через запятую"
+- generic: Медиа-материалы
+- button "Опубликовать":
+  - text: Опубликовать
+- button "Сохранить черновик"
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

@@ -20,7 +20,7 @@ export function AttractOverlay({ onDismiss }: { onDismiss: () => void }) {
     const t = setInterval(() => setI((x) => x + 1), ADVANCE_MS)
     return () => clearInterval(t)
   }, [])
-  if (!feats.length) return null
+  if (!feats.length) return <button onClick={onDismiss} style={{position: 'absolute', inset: 0, zIndex: 100, background: 'var(--c-bg)', color: 'var(--c-ink)', border: 'none', fontFamily: 'inherit', fontSize: 'var(--t-xl)', cursor: 'pointer'}}><img src="/logo.png" alt="Buketov University" style={{width: 160, display: 'block', margin: '0 auto 24px'}} />{ui.kioskTouchStart}</button>
 
   const at = (n: number): Alumnus => feats[((n % len) + len) % len]
   // content always changes on the hidden face, so there is never a visible pop

@@ -1,0 +1,30 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Персонал › Модератор
+- generic: Режим модератора
+- generic: Модератор факультета · Администратор системы
+- button "Админ-панель →"
+- button "Мои записи"
+- button "Добавить выпускника"
+- button "Черновики" [active]
+- button "На проверке"
+- generic: Сохранённые незавершённые анкеты выпускников
+- button "Новый выпускник":
+  - text: Новый выпускник
+- generic: Нет сохранённых черновиков
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

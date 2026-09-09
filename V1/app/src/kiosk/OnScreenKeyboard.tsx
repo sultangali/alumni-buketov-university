@@ -2,12 +2,13 @@ import type { CSSProperties } from 'react'
 import { useKeyboard } from './keyboard'
 
 const RU = ['ЙЦУКЕНГШЩЗХ', 'ФЫВАПРОЛДЖЭ', 'ЯЧСМИТЬБЮ']
+const KZ = ['ӘІҢҒҮҰҚӨҺ', ...RU]
 const EN = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM']
 
 export function OnScreenKeyboard() {
   const kb = useKeyboard()
   if (!kb.active) return null
-  const rows = kb.layout === 'ru' ? RU : EN
+  const rows = kb.layout === 'ru' ? RU : kb.layout === 'kz' ? KZ : EN
 
   const key: CSSProperties = { minWidth: 30, height: 52, flex: 1, maxWidth: 56, border: '1px solid var(--c-line)', borderRadius: 'var(--r)', background: 'var(--c-surface)', color: 'var(--c-ink)', fontSize: 18, fontWeight: 600, cursor: 'pointer', fontFamily: 'Manrope, sans-serif' }
   const wide: CSSProperties = { ...key, maxWidth: 120 }
@@ -24,7 +25,7 @@ export function OnScreenKeyboard() {
         </div>
       ))}
       <div style={{ display: 'flex', gap: 6, justifyContent: 'center' }}>
-        <button style={wide} onClick={() => kb.setLayout(kb.layout === 'ru' ? 'en' : 'ru')}>{kb.layout === 'ru' ? 'EN' : 'РУ'}</button>
+        <button style={wide} onClick={() => kb.setLayout(kb.layout === 'ru' ? 'kz' : kb.layout === 'kz' ? 'en' : 'ru')}>{kb.layout === 'ru' ? 'ҚАЗ' : kb.layout === 'kz' ? 'EN' : 'РУ'}</button>
         <button style={{ ...key, maxWidth: 240 }} onClick={() => kb.type(' ')}>␣</button>
         <button style={key} onClick={() => kb.type('@')}>@</button>
         <button style={wide} onClick={kb.blur}>✓</button>

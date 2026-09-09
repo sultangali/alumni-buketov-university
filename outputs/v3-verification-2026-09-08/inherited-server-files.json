@@ -1,0 +1,14 @@
+{
+  "server/README.md": "04137757ab9b47006879cfae5bfdbd536f2009c199377f78e9b217bf370f0a27",
+  "server/package.json": "69210cd6eb0a447445d50a8e6f038c59187d826ea61b2784da5dc9f523c33cfc",
+  "server/src/index.ts": "f819df768c09560a94e586d65eabc10350e41f0e3692dff0d22a3869efc1d464",
+  "server/src/middleware/auth.ts": "0b0a7c34234104eb10f7339904b143034e7f1f013036fbe4c502ab533eac9a7b",
+  "server/src/models/Person.ts": "b313a2824bc0c8cb0331c1fb704fb2d2e2cebcc8114ff4fb0993a675267103de",
+  "server/src/models/StaffUser.ts": "32587105dae4c125e5bd6be889fc55b00b87856f894ab08c400aef3aa435f41b",
+  "server/src/models/Submission.ts": "dca6fb64f14f290a4a667c122f0fac317fb9ab9430eb7ac82d1a189ad07dc3a7",
+  "server/src/routes/auth.ts": "207162a7db5cbe81875aa649d89e0769c7cf8371297e406816bb53166d44ec5a",
+  "server/src/routes/content.ts": "48c1714b37ea841a645c2eb67b8badaafbf50bf8667d597cc314f22c0ae2c65e",
+  "server/src/routes/media.ts": "b1ae1bfb9d8f8339b48ac48e1644c16cd480d564d93f6fae7645189900fd2fe3",
+  "server/src/routes/moderators.ts": "887063d41d2a1fd44bbb59ca3748db5d79d0115347a8cebd2724a9306218963f",
+  "server/src/routes/submissions.ts": "6109359bdc12de3ea01b69ff7ba9b87c4446ea49ec6f1db63fb18542dc90acac"
+}

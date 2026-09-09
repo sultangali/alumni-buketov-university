@@ -1,5 +1,5 @@
 import { useApp } from '../AppContext'
-import { facAlumni, fac, cardGrad, initials, chipStyle } from '../lib/logic'
+import { facAlumni, fac, cardGrad, initials, chipStyle, matchesText } from '../lib/logic'
 import type { Loc } from '../types'
 import { Icon } from '../components/icons'
 
@@ -14,7 +14,7 @@ export function FacultyAlumni({ facId }: { facId: string }) {
   const list = all.filter(
     (a) =>
       (listYear === 'all' || a.year === listYear) &&
-      (!q || (L(a.name) + L(a.pos)).toLowerCase().includes(q)),
+      (!q || matchesText(q, a.name, a.pos)),
   )
   const allYears: Loc = { ru: 'Все годы', kz: 'Барлығы', en: 'All years' }
 

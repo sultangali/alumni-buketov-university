@@ -1,0 +1,87 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Персонал › Администратор
+- generic: Панель администратора
+- generic: Администратор системы
+- button "← Модератор"
+- button "Обзор"
+- button "Аудит"
+- button "Модераторы"
+- generic: "5"
+- generic: Выпускников
+- generic: "22"
+- generic: Профилей в базе
+- generic: "0"
+- generic: На проверке
+- generic: "0"
+- generic: Модераторов
+- heading "Профили по категориям" [level=3]
+- generic: Выпускники
+- generic: 5 · 23%
+- generic: Лучшие преподаватели
+- generic: 6 · 27%
+- generic: Стипендиаты и лауреаты
+- generic: 6 · 27%
+- generic: Ветераны университета
+- generic: 5 · 23%
+- heading "Выпускники по факультетам" [level=3]
+- generic: Математики и информационных технологий
+- generic: 5 · 100%
+- heading "Записи по факультетам" [level=3]
+- generic: Математики и информационных технологий
+- generic: "5"
+- generic: Физико-технический
+- generic: "0"
+- generic: Юридический
+- generic: "0"
+- generic: Филологический
+- generic: "0"
+- generic: Биолого-географический
+- generic: "0"
+- generic: Исторический
+- generic: "0"
+- generic: Иностранных языков
+- generic: "0"
+- generic: Педагогический
+- generic: "0"
+- generic: Физической культуры и спорта
+- generic: "0"
+- generic: Философии и психологии
+- generic: "0"
+- generic: Химический
+- generic: "0"
+- generic: Экономический
+- generic: "0"
+- generic: Центр дистанционного образования
+- generic: "0"
+- generic: Колледж
+- generic: "0"
+- generic: Дополнительного образования
+- generic: "0"
+- heading "Последние действия" [level=3]
+- generic: local-demo-seed · добавил(а) выпускника · Математики и информационных технологий
+- generic: Айдана Серикова — 08.09.2026, 20:54
+- generic: local-demo-seed · добавил(а) выпускника · Математики и информационных технологий
+- generic: Данияр Омаров — 08.09.2026, 20:54
+- generic: local-demo-seed · добавил(а) выпускника · Математики и информационных технологий
+- generic: Алина Ким — 08.09.2026, 20:54
+- generic: local-demo-seed · добавил(а) выпускника · Математики и информационных технологий
+- generic: Тимур Бекенов — 08.09.2026, 20:54
+- generic: local-demo-seed · добавил(а) выпускника · Математики и информационных технологий
+- generic: Мадина Сулейменова — 08.09.2026, 20:54
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

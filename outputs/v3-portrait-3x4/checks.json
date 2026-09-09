@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "label": "narrow:teachers",
+      "width": 88,
+      "height": 117.328125,
+      "ratio": 0.7500332933812758
+    },
+    {
+      "label": "narrow:faculty&fac=mit",
+      "width": 88,
+      "height": 117.328125,
+      "ratio": 0.7500332933812758
+    },
+    {
+      "label": "portrait:teachers",
+      "width": 121.671875,
+      "height": 162.21875,
+      "ratio": 0.7500481602774032
+    },
+    {
+      "label": "portrait:faculty&fac=mit",
+      "width": 121.671875,
+      "height": 162.21875,
+      "ratio": 0.7500481602774032
+    },
+    {
+      "label": "mobile:teachers",
+      "width": 88,
+      "height": 117.328125,
+      "ratio": 0.7500332933812758
+    },
+    {
+      "label": "mobile:faculty&fac=mit",
+      "width": 88,
+      "height": 117.328125,
+      "ratio": 0.7500332933812758
+    },
+    {
+      "label": "desktop:teachers",
+      "width": 104.15625,
+      "height": 138.875,
+      "ratio": 0.75
+    },
+    {
+      "label": "desktop:faculty&fac=mit",
+      "width": 104.15625,
+      "height": 138.875,
+      "ratio": 0.75
+    },
+    {
+      "label": "test image",
+      "width": 88,
+      "height": 117.328125,
+      "ratio": 0.7500332933812758
+    }
+  ],
+  "profileNavigation": true,
+  "imageFixtureOnlyInBrowser": true
+}

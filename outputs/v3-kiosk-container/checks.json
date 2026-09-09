@@ -1,0 +1,113 @@
+[
+  {
+    "width": 925,
+    "height": 958,
+    "canvas": {
+      "x": 193.0625,
+      "y": 79,
+      "width": 538.875,
+      "height": 814,
+      "top": 79,
+      "right": 731.9375,
+      "bottom": 893,
+      "left": 193.0625
+    },
+    "search": {
+      "x": 221.0625,
+      "y": 330.53125,
+      "width": 482.875,
+      "height": 76,
+      "top": 330.53125,
+      "right": 703.9375,
+      "bottom": 406.53125,
+      "left": 221.0625
+    },
+    "filter": {
+      "x": 221.0625,
+      "y": 420.53125,
+      "width": 482.875,
+      "height": 86,
+      "top": 420.53125,
+      "right": 703.9375,
+      "bottom": 506.53125,
+      "left": 221.0625
+    },
+    "columns": "482.875px",
+    "overflow": false,
+    "intro": "482.875px"
+  },
+  {
+    "width": 520,
+    "height": 958,
+    "canvas": {
+      "x": 0,
+      "y": 79,
+      "width": 520,
+      "height": 814,
+      "top": 79,
+      "right": 520,
+      "bottom": 893,
+      "left": 0
+    },
+    "search": {
+      "x": 18,
+      "y": 330.53125,
+      "width": 484,
+      "height": 76,
+      "top": 330.53125,
+      "right": 502,
+      "bottom": 406.53125,
+      "left": 18
+    },
+    "filter": {
+      "x": 18,
+      "y": 420.53125,
+      "width": 484,
+      "height": 86,
+      "top": 420.53125,
+      "right": 502,
+      "bottom": 506.53125,
+      "left": 18
+    },
+    "columns": "484px",
+    "overflow": false,
+    "intro": "484px"
+  },
+  {
+    "width": 1080,
+    "height": 1920,
+    "canvas": {
+      "x": 0,
+      "y": 79,
+      "width": 1080,
+      "height": 1776,
+      "top": 79,
+      "right": 1080,
+      "bottom": 1855,
+      "left": 0
+    },
+    "search": {
+      "x": 28,
+      "y": 256.25,
+      "width": 1024,
+      "height": 76,
+      "top": 256.25,
+      "right": 1052,
+      "bottom": 332.25,
+      "left": 28
+    },
+    "filter": {
+      "x": 28,
+      "y": 346.25,
+      "width": 1024,
+      "height": 86,
+      "top": 346.25,
+      "right": 1052,
+      "bottom": 432.25,
+      "left": 28
+    },
+    "columns": "504px 504px",
+    "overflow": false,
+    "intro": "519.609px 472.391px"
+  }
+]

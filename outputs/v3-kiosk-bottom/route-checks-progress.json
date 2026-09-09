@@ -1,0 +1,6019 @@
+{
+  "errors": [],
+  "checks": [
+    {
+      "label": "portrait:home",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculties",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:teachers",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:laureates",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:veterans",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:apply",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:access",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:admin",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:mod",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:submission&id=unknown",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=mit",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=mit",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=phys",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=phys",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=law",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=law",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=phil",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=phil",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=biogeo",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=biogeo",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=history",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=history",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=lang",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=lang",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=edu",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=edu",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=sport",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=sport",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=philpsy",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=philpsy",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=chem",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=chem",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=econ",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=econ",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=distance",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=distance",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=college",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=college",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:faculty&fac=extra",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:facAlumni&fac=extra",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=demo-mit-20260908-01",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=demo-mit-20260908-02",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=demo-mit-20260908-03",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=demo-mit-20260908-04",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=demo-mit-20260908-05",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=t1",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=t2",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=t3",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=t4",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=t5",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=t6",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=l1",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=l2",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=l3",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=l4",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=l5",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=l6",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=v1",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=v2",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=v3",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=v4",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:alumni&id=v5",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:application form",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:application keyboard",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1542,
+      "top": 1542,
+      "bottom": 1607,
+      "keyboardTop": 1607,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:search keyboard ru",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1542,
+      "top": 1542,
+      "bottom": 1607,
+      "keyboardTop": 1607,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:search keyboard kz",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1483,
+      "top": 1483,
+      "bottom": 1548,
+      "keyboardTop": 1548,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:search keyboard en",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1542,
+      "top": 1542,
+      "bottom": 1607,
+      "keyboardTop": 1607,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:slideshow dismissed",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:home",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculties",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:teachers",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:laureates",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:veterans",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:apply",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:access",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:admin",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:mod",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:submission&id=unknown",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=mit",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=mit",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=phys",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=phys",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=law",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=law",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=phil",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=phil",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=biogeo",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=biogeo",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=history",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=history",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=lang",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=lang",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=edu",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=edu",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=sport",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=sport",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=philpsy",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=philpsy",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=chem",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=chem",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=econ",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=econ",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=distance",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=distance",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=college",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=college",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:faculty&fac=extra",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:facAlumni&fac=extra",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=demo-mit-20260908-01",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=demo-mit-20260908-02",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=demo-mit-20260908-03",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=demo-mit-20260908-04",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=demo-mit-20260908-05",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=t1",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=t2",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=t3",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=t4",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=t5",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=t6",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=l1",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=l2",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=l3",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=l4",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=l5",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=l6",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=v1",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=v2",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=v3",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=v4",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:alumni&id=v5",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:application form",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:application keyboard",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 522,
+      "top": 522,
+      "bottom": 587,
+      "keyboardTop": 587,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:search keyboard ru",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 522,
+      "top": 522,
+      "bottom": 587,
+      "keyboardTop": 587,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:search keyboard kz",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 463,
+      "top": 463,
+      "bottom": 528,
+      "keyboardTop": 528,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:search keyboard en",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 522,
+      "top": 522,
+      "bottom": 587,
+      "keyboardTop": 587,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:slideshow dismissed",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:mocked staff admin",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:mocked staff mod",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "portrait:mocked staff submission&id=qa-review",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:mocked staff admin",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:mocked staff mod",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "narrow:mocked staff submission&id=qa-review",
+      "height": 65,
+      "width": 506.25,
+      "contentBottom": 835,
+      "top": 835,
+      "bottom": 900,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 94.875,
+          "right": 201.4375,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 209.4375,
+          "right": 316,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 324,
+          "right": 430.5625,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 438.5625,
+          "right": 545.125,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    },
+    {
+      "label": "idle home restored",
+      "height": 65,
+      "width": 1080,
+      "contentBottom": 1855,
+      "top": 1855,
+      "bottom": 1920,
+      "buttons": [
+        {
+          "height": 48,
+          "left": 63,
+          "right": 243,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 321,
+          "right": 501,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 579,
+          "right": 759,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        },
+        {
+          "height": 48,
+          "left": 837,
+          "right": 1017,
+          "inside": true,
+          "visible": true,
+          "clipped": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Математики и информационных технологий › Айдана Серикова
+- generic: АС
+- generic: ✦ 2018
+- heading "Айдана Серикова" [level=1]
+- generic: Системный аналитик
+- text: Информационные системы
+- text: Математики и информационных технологий
+- heading "Биография" [level=2]
+- paragraph: Вымышленный тестовый профиль для локальной демонстрации. Проектирует информационные системы и описывает требования к цифровым сервисам.
+- button "Фотографии"
+- button "Видео"
+- button:
+- button:
+- button:
+- button:
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

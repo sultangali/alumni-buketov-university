@@ -1,4 +1,5 @@
 import express from 'express';
+import multer from 'multer';
 import cors from 'cors';
 import { env } from './env';
 import { connectDb } from './db';
@@ -38,7 +39,11 @@ export function createApp() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
     console.error('[error]', err.message);
-    res.status(400).json({ error: err.message });
+    const status = err instanceof multer.MulterError ? (err.code === 'LIMIT_FILE_SIZE' ? 413 : 400)
+      : ['ValidationError', 'CastError'].includes(err.name) ? 400
+      : (err as Error & { code?: number }).code === 11000 ? 409
+      : (err as Error & { status?: number }).status || 500;
+    res.status(status).json({ error: status >= 500 ? 'internal server error' : err.message });
   });
 
   return app;

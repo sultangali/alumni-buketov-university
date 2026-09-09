@@ -43,6 +43,8 @@ const PersonSchema = new Schema(
     meta: { type: LocSchema },
 
     awards: { type: [LocSchema], default: undefined },
+    mentorText: { type: String },
+    studentsText: { type: String },
     mentors: { type: [String], default: undefined },
     students: { type: [String], default: undefined },
 

@@ -1,0 +1,74 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Категории › Лучшие преподаватели
+- generic: Категории · 6 профилей
+- heading "Лучшие преподаватели" [level=1]
+- paragraph: Педагоги, отмеченные званием «Лучший преподаватель»
+- button "Все"
+- button "МАТ"
+- button "ФТ"
+- button "ЗАҢ"
+- button "ФИЛ"
+- button "БГ"
+- button "ИСТ"
+- button "ИЯ"
+- button "ПЕД"
+- button "ФКС"
+- button "ФП"
+- button "ХИМ"
+- button "ЭК"
+- button "ЦДО"
+- button "КОЛ"
+- button "ДО"
+- button "СА Лучший преподаватель 2023 Сериков Асхат Куанышевич Профессор, д.ф.-м.н.":
+  - generic: СА
+  - generic: Лучший преподаватель 2023
+  - generic: Сериков Асхат Куанышевич
+  - generic: Профессор, д.ф.-м.н.
+  - generic: →
+- button "ДА Лучший преподаватель 2022 Дюсенова Алия Маратовна Доцент, PhD":
+  - generic: ДА
+  - generic: Лучший преподаватель 2022
+  - generic: Дюсенова Алия Маратовна
+  - generic: Доцент, PhD
+  - generic: →
+- button "ОН Лучший преподаватель 2024 Оспанов Нурбол Серикович Профессор, д.ю.н.":
+  - generic: ОН
+  - generic: Лучший преподаватель 2024
+  - generic: Оспанов Нурбол Серикович
+  - generic: Профессор, д.ю.н.
+  - generic: →
+- button "КГ Лучший преподаватель 2023 Касенова Гульмира Сеитовна Доцент, к.ф.н.":
+  - generic: КГ
+  - generic: Лучший преподаватель 2023
+  - generic: Касенова Гульмира Сеитовна
+  - generic: Доцент, к.ф.н.
+  - generic: →
+- button "КД Лучший преподаватель 2021 Канатов Дамир Болатович Старший преподаватель":
+  - generic: КД
+  - generic: Лучший преподаватель 2021
+  - generic: Канатов Дамир Болатович
+  - generic: Старший преподаватель
+  - generic: →
+- button "ТЖ Лучший преподаватель 2024 Турарова Жанна Ерболовна Доцент":
+  - generic: ТЖ
+  - generic: Лучший преподаватель 2024
+  - generic: Турарова Жанна Ерболовна
+  - generic: Доцент
+  - generic: →
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

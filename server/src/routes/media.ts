@@ -42,7 +42,7 @@ const upload = multer({
     if (ALLOWED_TYPES[file.mimetype]) {
       cb(null, true);
     } else {
-      cb(new Error('unsupported file type'));
+      cb(Object.assign(new Error('unsupported file type'), { status: 415 }));
     }
   },
 });

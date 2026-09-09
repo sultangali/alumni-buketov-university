@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { useApp } from '../AppContext'
 import { ALU, TEACHERS, LAUREATES, VETERANS } from '../data/records'
-import { alumnusToPerson, cardGrad, initials } from '../lib/logic'
+import { alumnusToPerson, cardGrad, initials, matchesText } from '../lib/logic'
 import { useKeyboard } from './keyboard'
 import { Icon } from '../components/icons'
 
@@ -16,9 +16,9 @@ export function KioskSearch({ onClose }: { onClose: () => void }) {
     return () => kb.blur()
   }, [])
 
-  const people = useMemo(() => [...ALU.map(alumnusToPerson), ...TEACHERS, ...LAUREATES, ...VETERANS], [])
+  const people = [...ALU.map(alumnusToPerson), ...TEACHERS, ...LAUREATES, ...VETERANS]
   const query = q.trim().toLowerCase()
-  const results = query ? people.filter((p) => L(p.name).toLowerCase().includes(query)).slice(0, 30) : []
+  const results = query ? people.filter((p) => matchesText(query, p.name)).slice(0, 30) : []
 
   const field: CSSProperties = { flex: 1, border: 'none', outline: 'none', background: 'transparent', fontSize: 'var(--t-md)', color: 'var(--c-ink)', fontFamily: 'var(--font-ui, "Inter", sans-serif)' }
 
@@ -31,7 +31,8 @@ export function KioskSearch({ onClose }: { onClose: () => void }) {
           onChange={(e) => setQ(e.target.value)} />
         <button onClick={onClose} style={{ border: 'none', background: 'transparent', color: 'var(--c-ink2)', fontSize: 'var(--t-md)', cursor: 'pointer' }}>✕</button>
       </div>
-      <div style={{ flex: 1, overflowY: 'auto', padding: '0 var(--pad)' }}>
+      <div style={{ flex: 1, overflowY: 'auto', padding: '0 var(--pad)', paddingBottom: kb.active ? 410 : 0 }}>
+        {query && results.length === 0 && <p role="status">{L({ru: 'Ничего не найдено', kz: 'Ештеңе табылмады', en: 'No results'})}</p>}
         {results.map((p) => (
           <button key={p.id} onClick={() => { kb.blur(); onClose(); go({ name: 'alumni', id: p.id }) }}
             style={{ display: 'flex', alignItems: 'center', gap: 14, width: '100%', textAlign: 'left', border: 'none', borderBottom: '1px solid var(--c-line)', background: 'transparent', padding: '14px 0', cursor: 'pointer' }}>

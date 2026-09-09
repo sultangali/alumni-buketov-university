@@ -1,3 +1,4 @@
+import { canView } from '../lib/navigation'
 import { useApp } from '../AppContext'
 import { Home } from '../screens/Home'
 import { Faculties } from '../screens/Faculties'
@@ -12,7 +13,8 @@ import { Admin } from '../screens/Admin'
 import { SubmissionReview } from '../screens/SubmissionReview'
 
 export function ScreenRouter() {
-  const { route } = useApp()
+  const { route, staff } = useApp()
+  if (!canView(route, staff)) return <Access />
   switch (route.name) {
     case 'home':
       return <Home />

@@ -28,7 +28,7 @@ const KioskIcon = () => (
 )
 
 export function AppBar() {
-  const { narrow, ui, lang, theme, setLang, setTheme, setPreview, goHome, go } = useApp()
+  const { narrow, ui, lang, theme, setLang, setTheme, setPreview, goHome, go, staff, logout } = useApp()
 
   // Uniform height for every control on the right of the bar.
   const CTRL_H = narrow ? 34 : 38
@@ -189,9 +189,10 @@ export function AppBar() {
             </button>
           ))}
         </div>
-        <button onClick={() => go({ name: 'access' })} style={staffBtnStyle}>
-          {ui.accessBtn}
+        <button onClick={() => go({ name: staff ? (staff.role === 'admin' ? 'admin' : 'mod') : 'access' })} style={staffBtnStyle}>
+          {staff ? (staff.role === 'admin' ? ui.accessRoleAdmin : ui.accessRoleMod) : ui.accessBtn}
         </button>
+        {staff && <button onClick={logout} style={staffBtnStyle}>{ui.logoutBtn}</button>}
       </div>
     </div>
   )

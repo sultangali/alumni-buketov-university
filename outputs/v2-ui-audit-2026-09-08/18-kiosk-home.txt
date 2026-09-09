@@ -1,0 +1,23 @@
+- img "Karaganda Buketov University"
+- button "Светлая":
+- button "Тёмная":
+- button "Слайдшоу":
+- button "RU"
+- button "KZ"
+- button "EN"
+- button "⇱"
+- heading "Наследие университета — в каждом имени" [level=1]
+- button "Найти выпускника":
+  - text: Найти выпускника
+- button "Выпускники":
+  - generic: Выпускники
+- button "Лучшие преподаватели":
+  - generic: Лучшие преподаватели
+- button "Стипендиаты и лауреаты":
+  - generic: Стипендиаты и лауреаты
+- button "Ветераны университета":
+  - generic: Ветераны университета
+- button "Главная" [active]:
+  - text: Главная
+- button "Подать заявку":
+  - text: Подать заявку

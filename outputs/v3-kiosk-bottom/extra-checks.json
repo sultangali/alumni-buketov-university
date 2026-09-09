@@ -1,0 +1,86 @@
+[
+  {
+    "width": 1080,
+    "route": "admin",
+    "label": "Обзор",
+    "height": 65
+  },
+  {
+    "width": 1080,
+    "route": "admin",
+    "label": "Аудит",
+    "height": 65
+  },
+  {
+    "width": 1080,
+    "route": "admin",
+    "label": "Модераторы",
+    "height": 65
+  },
+  {
+    "width": 1080,
+    "route": "mod",
+    "label": "Мои записи",
+    "height": 65
+  },
+  {
+    "width": 1080,
+    "route": "mod",
+    "label": "Добавить выпускника",
+    "height": 65
+  },
+  {
+    "width": 1080,
+    "route": "mod",
+    "label": "Черновики",
+    "height": 65
+  },
+  {
+    "width": 1080,
+    "route": "mod",
+    "label": "На проверке",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "admin",
+    "label": "Обзор",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "admin",
+    "label": "Аудит",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "admin",
+    "label": "Модераторы",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "mod",
+    "label": "Мои записи",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "mod",
+    "label": "Добавить выпускника",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "mod",
+    "label": "Черновики",
+    "height": 65
+  },
+  {
+    "width": 640,
+    "route": "mod",
+    "label": "На проверке",
+    "height": 65
+  }
+]

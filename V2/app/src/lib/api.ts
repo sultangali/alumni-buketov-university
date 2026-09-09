@@ -16,11 +16,31 @@ export const mediaSrc = (url?: string): string => {
   return `${API_URL}${url.startsWith('/') ? '' : '/'}${url}`
 }
 
-async function j(path: string, init?: RequestInit) {
-  const r = await fetch(`${API_URL}${path}`, init)
-  if (!r.ok) throw new Error(`${path} -> ${r.status}`)
-  return r.json()
+export class ApiError extends Error {
+  constructor(message: string, public status: number) { super(message) }
 }
+
+async function j(path: string, init?: RequestInit) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 15000)
+  try {
+    const r = await fetch(`${API_URL}${path}`, { ...init, signal: controller.signal })
+    const body = await r.json().catch(() => null)
+    if (!r.ok) {
+      if (r.status === 401 && new Headers(init?.headers).has('Authorization') && typeof window !== 'undefined') {
+        window.dispatchEvent(new Event('alumni-session-expired'))
+      }
+      throw new ApiError(typeof body?.error === 'string' ? body.error : `HTTP ${r.status}`, r.status)
+    }
+    if (body === null) throw new ApiError('Invalid server response', r.status)
+    return body
+  } catch (e) {
+    if (e instanceof ApiError) throw e
+    throw new ApiError('Сервер недоступен. Проверьте соединение и повторите попытку.', 0)
+  } finally { clearTimeout(timer) }
+}
+export const apiMe = (token: string) => j('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } })
+export const apiLogout = (token: string) => j('/api/auth/logout', { method: 'POST', headers: { Authorization: `Bearer ${token}` } })
 export const fetchBootstrap = () => j('/api/bootstrap')
 export const apiLogin = (username: string, password: string) =>
   j('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username, password }) })
@@ -55,20 +75,7 @@ export interface UploadedMedia { url: string; name: string; kind: 'image' | 'vid
 export const apiUploadMedia = async (file: File, token?: string): Promise<UploadedMedia> => {
   const fd = new FormData()
   fd.append('file', file)
-  const r = await fetch(`${API_URL}/api/media`, {
-    method: 'POST',
-    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-    body: fd,
+  return j('/api/media', {
+    method: 'POST', headers: token ? { Authorization: `Bearer ${token}` } : undefined, body: fd,
   })
-  if (!r.ok) {
-    let msg = `upload failed (${r.status})`
-    try {
-      const e = await r.json()
-      if (e?.error) msg = e.error
-    } catch {
-      /* non-JSON error body */
-    }
-    throw new Error(msg)
-  }
-  return r.json()
 }

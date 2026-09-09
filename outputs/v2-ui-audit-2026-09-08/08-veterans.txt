@@ -1,0 +1,68 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Категории › Ветераны университета
+- generic: Категории · 5 профилей
+- heading "Ветераны университета" [level=1]
+- paragraph: Заслуженные преподаватели и сотрудники с многолетним стажем
+- button "Все"
+- button "МАТ"
+- button "ФТ"
+- button "ЗАҢ"
+- button "ФИЛ"
+- button "БГ"
+- button "ИСТ"
+- button "ИЯ"
+- button "ПЕД"
+- button "ФКС"
+- button "ФП"
+- button "ХИМ"
+- button "ЭК"
+- button "ЦДО"
+- button "КОЛ"
+- button "ДО"
+- button "МК Ветеран университета Муканов Канат Сеитович Профессор, основатель научной школы":
+  - generic: МК
+  - generic: Ветеран университета
+  - generic: Муканов Канат Сеитович
+  - generic: Профессор, основатель научной школы
+  - generic: →
+- button "ПС Ветеран университета Петрова Светлана Ивановна Доцент":
+  - generic: ПС
+  - generic: Ветеран университета
+  - generic: Петрова Светлана Ивановна
+  - generic: Доцент
+  - generic: →
+- button "ЖБ Ветеран университета Жусупов Бакыт Абдиевич Профессор":
+  - generic: ЖБ
+  - generic: Ветеран университета
+  - generic: Жусупов Бакыт Абдиевич
+  - generic: Профессор
+  - generic: →
+- button "АР Ветеран университета Алибекова Роза Кажимуратовна Профессор":
+  - generic: АР
+  - generic: Ветеран университета
+  - generic: Алибекова Роза Кажимуратовна
+  - generic: Профессор
+  - generic: →
+- button "СВ Ветеран университета Соколов Виктор Павлович Старший преподаватель":
+  - generic: СВ
+  - generic: Ветеран университета
+  - generic: Соколов Виктор Павлович
+  - generic: Старший преподаватель
+  - generic: →
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

@@ -1,0 +1,35 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Факультеты › Математики и информационных технологий
+- generic: МАТ
+- generic: Факультеты · с 1972
+- heading "Математики и информационных технологий" [level=1]
+- button "5 → выпускников":
+  - generic: "5"
+  - generic: →
+  - generic: выпускников
+- heading "История" [level=2]
+- paragraph: Основан в 1972 году и стал одним из ведущих центров подготовки IT-специалистов в Центральном Казахстане.
+- heading "Галерея" [level=2]
+- generic: Архив · 1986
+- generic: Архив · 1991
+- generic: Архив · 1996
+- generic: Архив · 2001
+- generic: Архив · 2006
+- generic: Архив · 2011
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

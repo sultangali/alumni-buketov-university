@@ -28,6 +28,8 @@ import {
   type UploadedMedia,
 } from './lib/api'
 import { hydrate } from './data/records'
+import { validRoute, routeFromUrl, routeUrl, canView, nextFeatured } from './lib/navigation'
+import { apiMe, apiLogout, ApiError } from './lib/api'
 
 type Staff = { token: string; role: 'admin' | 'moderator'; username: string; fac?: string }
 
@@ -39,23 +41,17 @@ const ROUTE_KEY = 'alumni-route'
 const readStaff = (): Staff | null => {
   try {
     const raw = localStorage.getItem(STAFF_KEY)
-    return raw ? (JSON.parse(raw) as Staff) : null
+    const value = raw ? JSON.parse(raw) : null
+    return value && typeof value.token === 'string' && typeof value.username === 'string' && ['admin', 'moderator'].includes(value.role) ? value as Staff : null
   } catch {
     return null
   }
 }
 const readRoute = (): Route => {
   try {
-    const raw = localStorage.getItem(ROUTE_KEY)
-    if (raw) {
-      const r = JSON.parse(raw) as Route
-      // staff-only screens require a session; otherwise fall back home
-      const staffOnly = r.name === 'admin' || r.name === 'mod' || r.name === 'submission'
-      if (!staffOnly || readStaff()) return r
-    }
-  } catch {
-    /* malformed — ignore */
-  }
+    const route = routeFromUrl(new URL(window.location.href)) ?? validRoute(JSON.parse(localStorage.getItem(ROUTE_KEY) || 'null'))
+    if (route) return canView(route, readStaff()) ? route : { name: 'access' }
+  } catch { /* invalid stored route */ }
   return { name: 'home' }
 }
 
@@ -112,7 +108,10 @@ interface AppCtx extends AppProps {
   setAdminTab: (t: 'overview' | 'audit' | 'mods') => void
 
   submissions: Submission[]
-  addSubmission: (s: Omit<Submission, 'id' | 'status' | 'submittedAt'>) => void
+  addSubmission: (s: Omit<Submission, 'id' | 'status' | 'submittedAt'>) => Promise<void>
+  uploadsPending: number
+  operationError: string
+  retryContent: () => void
 
   ready: boolean
   staff: Staff | null
@@ -145,9 +144,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(PROPS.defaultLang)
   const [theme, setTheme] = useState<Theme>(PROPS.defaultTheme)
   // The info-kiosk opens the site with ?preview=kiosk to start in kiosk layout.
-  const [preview, setPreview] = useState<Preview>(readPreview)
+  const [preview, setPreviewState] = useState<Preview>(readPreview)
+  const setPreview = (value: Preview) => {
+    setPreviewState(value)
+    const url = new URL(window.location.href)
+    url.searchParams.set('preview', value)
+    window.history.replaceState(window.history.state, '', url)
+  }
   const [route, setRoute] = useState<Route>(readRoute)
-  const [, setHistory] = useState<Route[]>([])
+  const historyDepth = useRef(0)
   const [featIdx, setFeatIdx] = useState(0)
   const [listYear, setListYear] = useState<number | 'all'>('all')
   const [listQuery, setListQuery] = useState('')
@@ -155,7 +160,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [modTab, setModTab] = useState<'list' | 'add' | 'drafts' | 'review'>('list')
   const [adminTab, setAdminTab] = useState<'overview' | 'audit' | 'mods'>('overview')
   const [submissions, setSubmissions] = useState<Submission[]>([])
-  const subSeq = useRef(0)
+  const [uploadsPending, setUploadsPending] = useState(0)
+  const [operationError, setOperationError] = useState('')
+  const [loadError, setLoadError] = useState('')
+  const [loadAttempt, setLoadAttempt] = useState(0)
+  const retryContent = () => setLoadAttempt(n => n + 1)
 
   // ---- API hydration + staff auth ----
   const [ready, setReady] = useState(false)
@@ -172,29 +181,31 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [route])
 
   useEffect(() => {
-    fetchBootstrap()
-      .then((d) => {
-        hydrate(d)
-        setReady(true)
-        force((n) => n + 1)
-      })
-      .catch(() => setReady(true))
-  }, [])
+    let cancelled = false
+    setReady(false)
+    setLoadError('')
+    const saved = readStaff()
+    Promise.all([
+      fetchBootstrap(),
+      saved ? apiMe(saved.token).then(me => ({ ...me, token: saved.token } as Staff)).catch(e => {
+        if (!(e instanceof ApiError) || e.status !== 401) throw e
+        return null
+      }) : Promise.resolve(null),
+    ]).then(([data, session]) => {
+      if (cancelled) return
+      hydrate(data)
+      setStaff(session)
+      if (!session) { try { localStorage.removeItem(STAFF_KEY) } catch { /* unavailable storage */ } }
+      setReady(true)
+      force(n => n + 1)
+    }).catch(e => { if (!cancelled) setLoadError(e.message) })
+    return () => { cancelled = true }
+  }, [loadAttempt])
 
-  const addSubmission = useCallback(
-    (s: Omit<Submission, 'id' | 'status' | 'submittedAt'>) => {
-      // POST to the backend (fire-and-forget); offline it just stays local.
-      apiCreateSubmission(s).catch(() => {})
-      // optimistic local prepend so the current UI updates immediately
-      subSeq.current += 1
-      const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ')
-      setSubmissions((prev) => [
-        { ...s, id: `sub${subSeq.current}`, status: 'review', submittedAt: stamp },
-        ...prev,
-      ])
-    },
-    [],
-  )
+  const addSubmission = useCallback(async (s: Omit<Submission, 'id' | 'status' | 'submittedAt'>) => {
+    const saved = await apiCreateSubmission(s)
+    setSubmissions(prev => [saved, ...prev.filter(p => p.id !== saved.id)])
+  }, [])
 
   const login = useCallback(async (username: string, password: string) => {
     try {
@@ -211,17 +222,28 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return null
     }
   }, [])
-  const logout = useCallback(() => {
+  const clearSession = useCallback(() => {
     setStaff(null)
-    try {
-      localStorage.removeItem(STAFF_KEY)
-    } catch {
-      /* ignore */
-    }
+    setSubmissions([])
+    setModerators([])
+    setRoute({ name: 'home' })
+    historyDepth.current = 0
+    window.history.replaceState({ alumniDepth: 0 }, '', routeUrl({ name: 'home' }, window.location.href))
+    try { localStorage.removeItem(STAFF_KEY) } catch { /* unavailable storage */ }
   }, [])
+  const logout = useCallback(() => {
+    const token = staff?.token
+    clearSession()
+    if (token) apiLogout(token).catch(() => setOperationError('Локальный выход выполнен. Сервер не подтвердил завершение сессии.'))
+  }, [staff, clearSession])
+  useEffect(() => {
+    const expire = () => { clearSession(); setOperationError('Сессия завершена. Войдите снова.') }
+    window.addEventListener('alumni-session-expired', expire)
+    return () => window.removeEventListener('alumni-session-expired', expire)
+  }, [clearSession])
   const refreshSubmissions = useCallback(() => {
     if (!staff) return
-    apiListSubmissions(staff.token).then(setSubmissions).catch(() => {})
+    apiListSubmissions(staff.token).then(setSubmissions).catch(e => setOperationError(e.message))
   }, [staff])
   const reviewSubmission = useCallback(
     (id: string, action: 'approve' | 'reject') => {
@@ -242,7 +264,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [moderators, setModerators] = useState<ModeratorAccount[]>([])
   const refreshModerators = useCallback(() => {
     if (!staff || staff.role !== 'admin') return
-    apiListModerators(staff.token).then(setModerators).catch(() => {})
+    apiListModerators(staff.token).then(setModerators).catch(e => setOperationError(e.message))
   }, [staff])
   const errMsg = (e: unknown): string => (e instanceof Error ? e.message : 'error')
   const createModerator = useCallback(
@@ -293,7 +315,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         hydrate(d)
         force((n) => n + 1)
       })
-      .catch(() => {})
+      .catch(e => setOperationError(e.message))
   }, [])
   const updatePerson = useCallback(
     async (id: string, body: Record<string, unknown>) => {
@@ -340,11 +362,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Public: the apply form uploads without a session, staff pass their token.
   const uploadMedia = useCallback(
     async (file: File): Promise<UploadedMedia | null> => {
+      setUploadsPending(n => n + 1)
       try {
         return await apiUploadMedia(file, staff?.token)
-      } catch {
+      } catch (e) {
+        setOperationError(errMsg(e))
         return null
-      }
+      } finally { setUploadsPending(n => n - 1) }
     },
     [staff],
   )
@@ -355,26 +379,26 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   // ---- navigation ----
   const go = useCallback((r: Route) => {
-    setHistory((h) => [...h, route])
-    // entering a faculty (or its alumni sub-page) resets the alumni-list filters
-    if (r.name === 'faculty' || r.name === 'facAlumni') {
-      setListYear('all')
-      setListQuery('')
-    }
-    setRoute(r)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [route])
+    const target = r
+    if (r.name === 'faculty' || r.name === 'facAlumni') { setListYear('all'); setListQuery('') }
+    setOperationError('')
+    historyDepth.current += 1
+    window.history.pushState({ alumniDepth: historyDepth.current }, '', routeUrl(target, window.location.href))
+    setRoute(target)
+  }, [staff])
+  const goHome = useCallback(() => go({ name: 'home' }), [go])
   const back = useCallback(() => {
-    setHistory((h) => {
-      const copy = [...h]
-      const prev = copy.pop() || { name: 'home' as const }
-      setRoute(prev)
-      return copy
-    })
-  }, [])
-  const goHome = useCallback(() => {
-    setRoute({ name: 'home' })
-    setHistory([])
+    if (historyDepth.current > 0) window.history.back()
+    else goHome()
+  }, [goHome])
+  useEffect(() => {
+    window.history.replaceState({ alumniDepth: 0 }, '', routeUrl(readRoute(), window.location.href))
+    const pop = () => {
+      historyDepth.current = window.history.state?.alumniDepth ?? 0
+      setRoute(routeFromUrl(new URL(window.location.href)) ?? { name: 'home' })
+    }
+    window.addEventListener('popstate', pop)
+    return () => window.removeEventListener('popstate', pop)
   }, [])
 
   // ---- autoplay for the Hall of Fame spotlight ----
@@ -388,7 +412,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (motion === 'off') return
     const ms = Math.max(2, autoplaySeconds || 6) * 1000
     iv.current = setInterval(() => {
-      if (routeName === 'home') setFeatIdx((i) => (i + 1) % featCount)
+      if (routeName === 'home') setFeatIdx((i) => nextFeatured(i, featCount))
     }, ms)
     return () => clearInterval(iv.current)
   }, [routeName, featCount, motion, autoplaySeconds])
@@ -464,6 +488,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     submissions,
     addSubmission,
     ready,
+    uploadsPending,
+    operationError,
+    retryContent,
     staff,
     login,
     logout,
@@ -493,10 +520,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
           fontSize: 'var(--t-lg)',
         }}
       >
-        {ui.loading ?? '…'}
+        {loadError ? <div role="alert"><p>{loadError}</p><button onClick={retryContent}>Повторить / Retry / Қайталау</button></div> : (ui.loading ?? '…')}
       </div>
     )
   }
 
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>
+  return <Ctx.Provider value={value}>{operationError && <div role="alert" style={{position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, background: '#fff4e5', color: '#602b00', padding: 12}}>{operationError} <button onClick={() => setOperationError('')}>✕</button></div>}{children}</Ctx.Provider>
 }

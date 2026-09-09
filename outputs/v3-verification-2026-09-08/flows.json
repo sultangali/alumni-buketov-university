@@ -1,0 +1,15 @@
+{
+  "results": [
+    "Live global search -> profile",
+    "teachers live collection -> profile",
+    "laureates live collection -> profile",
+    "veterans live collection -> profile",
+    "Application API503 preserves fields; POST intercepted, no DB write",
+    "Mobile apply",
+    "Mobile access",
+    "Mocked admin login/redirect/logout/history guard; real backend auth not exercised",
+    "Kiosk Home closes KZ keyboard",
+    "Real 60s idle resets to home + attract, tap dismisses"
+  ],
+  "errors": []
+}

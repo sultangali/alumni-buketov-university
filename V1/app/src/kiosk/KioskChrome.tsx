@@ -1,9 +1,11 @@
 import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react'
 import { Icon } from '../components/icons'
+import { useOptionalKeyboard } from './keyboard'
 import { useApp } from '../AppContext'
 
 export function KioskChrome({ children, onLogoHold, onSlideshow }: { children: ReactNode; onLogoHold: () => void; onSlideshow: () => void }) {
-  const { ui, lang, setLang, theme, setTheme, go, goHome, showCrumb, back, setPreview, route } = useApp()
+  const kb = useOptionalKeyboard()
+  const { staff, logout, ui, lang, setLang, theme, setTheme, go, goHome, showCrumb, back, setPreview, route } = useApp()
 
   const holdTimer = useRef<ReturnType<typeof setTimeout>>()
   const startHold = () => {
@@ -66,6 +68,7 @@ export function KioskChrome({ children, onLogoHold, onSlideshow }: { children: R
               </button>
             ))}
           </div>
+          {staff && <button style={navBtn} onClick={logout}>{ui.logoutBtn}</button>}
           {/* slideshow */}
           <button
             onClick={onSlideshow}
@@ -107,9 +110,9 @@ export function KioskChrome({ children, onLogoHold, onSlideshow }: { children: R
         </div>
       </div>
 
-      <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>{children}</div>
+      <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', paddingBottom: kb?.active ? 410 : 0, overflowX: 'hidden' }}>{children}</div>
 
-      <div style={{ display: 'flex', gap: 10, padding: '12px var(--pad)', borderTop: 'var(--bw) solid var(--c-line)' }}>
+      <div style={{ display: 'flex', gap: 10, marginBottom: kb?.active ? 390 : 0, padding: '12px var(--pad)', borderTop: 'var(--bw) solid var(--c-line)' }}>
         {showCrumb && (
           <button style={navBtn} onClick={back}>
             ‹ {ui.kioskBack}

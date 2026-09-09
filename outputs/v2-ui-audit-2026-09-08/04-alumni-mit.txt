@@ -1,0 +1,58 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Математики и информационных технологий › Выпускники
+- generic: МАТЕМАТИКИ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ
+- heading "Выпускники" [level=1]
+- textbox "Поиск по имени…"
+- button "Все годы"
+- button "2022"
+- button "2020"
+- button "2019"
+- button "2018"
+- button "2016"
+- button "АС 2018 Айдана Серикова Системный аналитик":
+  - generic: АС
+  - generic: "2018"
+  - generic: Айдана Серикова
+  - generic: Системный аналитик
+  - generic: →
+- button "ДО 2020 Данияр Омаров Разработчик веб-приложений":
+  - generic: ДО
+  - generic: "2020"
+  - generic: Данияр Омаров
+  - generic: Разработчик веб-приложений
+  - generic: →
+- button "АК 2016 Алина Ким Аналитик данных":
+  - generic: АК
+  - generic: "2016"
+  - generic: Алина Ким
+  - generic: Аналитик данных
+  - generic: →
+- button "ТБ 2022 Тимур Бекенов Инженер по тестированию":
+  - generic: ТБ
+  - generic: "2022"
+  - generic: Тимур Бекенов
+  - generic: Инженер по тестированию
+  - generic: →
+- button "МС 2019 Мадина Сулейменова Преподаватель программирования":
+  - generic: МС
+  - generic: "2019"
+  - generic: Мадина Сулейменова
+  - generic: Преподаватель программирования
+  - generic: →
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

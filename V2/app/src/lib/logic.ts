@@ -17,7 +17,7 @@ export type Localize = ReturnType<typeof makeL>
 export const fac = (id: string): Faculty | undefined => FAC.find((f) => f.id === id)
 export const dept = (fid: string, did: string) => fac(fid)?.depts.find((d) => d.id === did)
 export const alu = (id: string): Alumnus | null => ALU.find((a) => a.id === id) ?? null
-export const facAlumniCount = (f: Faculty): number => f.depts.reduce((s, d) => s + d.count, 0)
+export const facAlumniCount = (f: Faculty): number => ALU.filter((a) => a.fac === f.id).length
 export const featList = (): Alumnus[] => ALU.filter((a) => a.featured)
 
 /** Real alumni records belonging to a faculty (the browsable archive subset). */
@@ -39,19 +39,20 @@ export const alumnusToPerson = (a: Alumnus): Person => ({
   spec: a.spec,
   bio: a.bio,
   awards: a.awards,
+  mentorText: a.mentorText,
+  studentsText: a.studentsText,
   mentors: a.mentors,
   students: a.students,
   photoUrl: a.photoUrl,
   media: a.media,
 })
 
-const CATEGORY_PEOPLE: Person[] = [...TEACHERS, ...LAUREATES, ...VETERANS]
 
 /** Resolve any profile id (alumnus / teacher / laureate / veteran). */
 export const person = (id: string): Person | null => {
   const a = alu(id)
   if (a) return alumnusToPerson(a)
-  return CATEGORY_PEOPLE.find((p) => p.id === id) ?? null
+  return [...TEACHERS, ...LAUREATES, ...VETERANS].find((p) => p.id === id) ?? null
 }
 
 /** The dataset backing a category collection. */
@@ -240,3 +241,9 @@ export const chipStyle = (active: boolean): CSSProperties => ({
   color: active ? 'var(--c-on-accent)' : 'var(--c-ink2)',
   transition: 'all .15s ease',
 })
+
+/** Search all translations, regardless of the selected interface language. */
+export const matchesText = (query: string, ...values: (Loc | undefined)[]): boolean => {
+  const normalized = (value: string) => value.normalize('NFKC').toLocaleLowerCase().replace(/ё/g, 'е')
+  return values.some(value => Object.values(value || {}).some(text => normalized(text || '').includes(normalized(query.trim()))))
+}

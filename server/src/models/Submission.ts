@@ -33,6 +33,7 @@ const SubmissionSchema = new Schema(
     spec: { type: Schema.Types.Mixed },
     pos: { type: Schema.Types.Mixed },
     bio: { type: Schema.Types.Mixed },
+    contact: { type: String },
     mentor: { type: String },
     students: { type: String },
     photoUrl: { type: String },

@@ -7,8 +7,8 @@ interface KB {
   active: boolean
   type(ch: string): void
   backspace(): void
-  layout: 'ru' | 'en'
-  setLayout(l: 'ru' | 'en'): void
+  layout: 'ru' | 'kz' | 'en'
+  setLayout(l: 'ru' | 'kz' | 'en'): void
 }
 const Ctx = createContext<KB | null>(null)
 export const useKeyboard = (): KB => {
@@ -21,10 +21,10 @@ export const useOptionalKeyboard = () => useContext(Ctx)
 export function KeyboardProvider({ children }: { children: ReactNode }) {
   const setter = useRef<Setter | null>(null)
   const [active, setActive] = useState(false)
-  const [layout, setLayout] = useState<'ru' | 'en'>('ru')
+  const [layout, setLayout] = useState<'ru' | 'kz' | 'en'>('ru')
   const api: KB = useMemo(() => ({
     focus(s) { setter.current = s; setActive(true) },
-    blur() { setActive(false) },
+    blur() { setter.current = null; setActive(false) },
     active,
     type(ch) { setter.current?.((v) => v + ch) },
     backspace() { setter.current?.((v) => v.slice(0, -1)) },

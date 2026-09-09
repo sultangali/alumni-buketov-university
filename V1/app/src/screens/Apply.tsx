@@ -8,16 +8,17 @@ import { useOptionalKeyboard } from '../kiosk/keyboard'
 import { Icon } from '../components/icons'
 // On a kiosk the visitor can't attach files — they scan this to finish the
 // photo/media upload (profile photo auto-cropped to 3:4) from their phone.
-const UPLOAD_URL = 'https://alumni.buketov.edu.kz/u/apply'
+// Same server on a LAN; an explicit public URL can be configured when reachable.
+const applyUrl = () => import.meta.env.VITE_APPLY_URL || new URL('/u/apply', window.location.origin).href
 
 export function Apply() {
-  const { ui, L, go, addSubmission, narrow, uploadMedia } = useApp()
+  const { ui, L, go, addSubmission, narrow, uploadMedia, uploadsPending } = useApp()
   const kbCtx = useOptionalKeyboard()
   const [uploadErr, setUploadErr] = useState('')
 
   const [name, setName] = useState('')
   const [contact, setContact] = useState('')
-  const [facId, setFacId] = useState(FAC[0]?.id ?? '')
+  const [facId, setFacId] = useState('')
   const [facOther, setFacOther] = useState('')
   const [facNotListed, setFacNotListed] = useState(false)
   const [year, setYear] = useState('')
@@ -25,6 +26,10 @@ export function Apply() {
   const [pos, setPos] = useState('')
   const [bio, setBio] = useState('')
   const [done, setDone] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [kioskForm, setKioskForm] = useState(false)
+  const UPLOAD_URL = applyUrl()
   const [touched, setTouched] = useState(false)
   const [mentor, setMentor] = useState('')
   const [students, setStudents] = useState('')
@@ -59,12 +64,17 @@ export function Apply() {
     }
   }
 
-  const submit = () => {
-    if (!name.trim() || otherEmpty) {
+  const submit = async () => {
+    if (sending || uploadsPending) return
+    if (!name.trim() || otherEmpty || (!facNotListed && !facId)) {
       setTouched(true)
       return
     }
-    addSubmission({
+    setSending(true)
+    setSubmitError('')
+    try {
+    await addSubmission({
+      contact: contact.trim() || undefined,
       name: { ru: name.trim() },
       year: year.trim() ? Number(year.trim()) || null : null,
       fac: facNotListed ? facOther.trim() : facId,
@@ -77,6 +87,9 @@ export function Apply() {
       media: media.map((m) => ({ name: m.name, kind: m.kind, url: m.url })),
     })
     setDone(true)
+    } catch (e) {
+      setSubmitError(e instanceof Error ? e.message : ui.uploadFailed)
+    } finally { setSending(false) }
   }
 
   const reset = () => {
@@ -123,7 +136,7 @@ export function Apply() {
 
   // On a kiosk the whole application is filled on the visitor's phone: show a
   // single, centred QR code that opens this same form on their smartphone.
-  if (narrow) {
+  if (narrow && !kioskForm) {
     return (
       <div
         style={{
@@ -168,6 +181,8 @@ export function Apply() {
         <div style={{ marginTop: 20, color: 'var(--c-ink2)', fontSize: 'var(--t-sm)', fontWeight: 600 }}>
           {UPLOAD_URL.replace(/^https?:\/\//, '')}
         </div>
+        <p>{L({ru: 'Телефон должен иметь доступ к этой сети. Можно заполнить заявку здесь.', kz: 'Телефон осы желіге қосылуы керек. Өтінімді осы жерде толтыруға болады.', en: 'Your phone needs access to this network. You can also apply here.'})}</p>
+        <button style={primaryBtn} onClick={() => setKioskForm(true)}>{L({ru: 'Заполнить здесь', kz: 'Осы жерде толтыру', en: 'Apply here'})}</button>
       </div>
     )
   }
@@ -281,6 +296,7 @@ export function Apply() {
 
         <div>
           <div style={fieldLabel}>{ui.applyFaculty}</div>
+          {touched && !facNotListed && !facId && <div role="alert" style={{ color: '#c2410c' }}>{ui.applyRequired}</div>}
           {!facNotListed && (
             <div style={{ position: 'relative' }}>
               <select
@@ -291,6 +307,7 @@ export function Apply() {
                 }}
                 style={selectStyle}
               >
+                <option value="">{ui.applyFaculty}</option>
                 {FAC.map((f) => (
                   <option key={f.id} value={f.id}>
                     {L(f.name)}
@@ -551,8 +568,9 @@ export function Apply() {
             paddingTop: 18,
           }}
         >
-          <button onClick={submit} style={primaryBtn}>
-            {ui.applySubmit}
+          {submitError && <p role="alert" style={{color: '#b3261e'}}>{submitError}</p>}
+          <button onClick={submit} disabled={sending || uploadsPending > 0} style={primaryBtn}>
+            {sending || uploadsPending ? ui.loading : ui.applySubmit}
           </button>
           <span style={{ color: 'var(--c-ink2)', fontSize: 'var(--t-2xs)', fontWeight: 600 }}>
             {ui.applySub}

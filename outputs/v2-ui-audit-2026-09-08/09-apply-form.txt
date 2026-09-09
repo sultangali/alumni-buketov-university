@@ -1,0 +1,65 @@
+- img "Karaganda Buketov University"
+- generic: alumni
+- generic: Buketov University
+- group "Веб-сайт / Киоск":
+  - button "Веб-сайт" [pressed]:
+  - button "Киоск":
+- button "РУС"
+- button "ҚАЗ"
+- button "ENG"
+- button "☀"
+- button "☾"
+- button "◑"
+- button "Войти"
+- button "‹ Назад":
+  - generic: ‹
+  - text: Назад
+- generic: Категории › Заявка выпускника
+- heading "Заявка выпускника" [level=1]
+- paragraph: Заполните форму — после проверки модератором профиль появится в архиве
+- generic: Ваше полное имя *
+- textbox "Айдос Серикулы Жумабеков"
+- generic: Факультет
+- combobox:
+  - option "Математики и информационных технологий" [selected]
+  - option "Физико-технический"
+  - option "Юридический"
+  - option "Филологический"
+  - option "Биолого-географический"
+  - option "Исторический"
+  - option "Иностранных языков"
+  - option "Педагогический"
+  - option "Физической культуры и спорта"
+  - option "Философии и психологии"
+  - option "Химический"
+  - option "Экономический"
+  - option "Центр дистанционного образования"
+  - option "Колледж"
+  - option "Дополнительного образования"
+- generic: ▼
+- checkbox "Моего факультета нет в списке"
+- text: Моего факультета нет в списке
+- generic: Год выпуска
+- textbox "2014"
+- generic: Специальность
+- textbox
+- generic: Должность и место работы
+- textbox
+- generic: Контактный email
+- textbox "name@example.com"
+- generic: Биография
+- textbox
+- generic: Фото профиля (3:4)
+- generic: Загрузить фото
+- generic: Изображение кадрируется по формату 3:4
+- generic: Фото и видео
+- text: Добавить файлы
+- generic: Преемственность научных школ
+- generic: Научный наставник
+- textbox "Профессор Сериков А.Қ."
+- generic: Ученики
+- textbox "ФИО через запятую"
+- button "Отправить заявку"
+- generic: Заполните форму — после проверки модератором профиль появится в архиве
+- generic: Интерактивная мультимедийная информационная система · ИМИС
+- generic: © 2026 · Karaganda Buketov University

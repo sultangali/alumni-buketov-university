@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "remote": [],
+  "passed": [
+    "web search focuses input",
+    "compact menu opens application",
+    "mock201 shows success only after response",
+    "kiosk QR path renders",
+    "mobile profile no overflow",
+    "bootstrap503 retry restores15 faculties",
+    "no runtime external URLs requested"
+  ]
+}
