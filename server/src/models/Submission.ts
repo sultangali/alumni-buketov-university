@@ -11,6 +11,8 @@ const submissionTransform = {
     ret.id = String(ret._id);
     delete ret._id;
     delete ret.__v;
+    delete ret.clientSubmissionId;
+    delete ret.payloadFingerprint;
     return ret;
   },
 };
@@ -27,12 +29,15 @@ const MediaSchema = new Schema(
 
 const SubmissionSchema = new Schema(
   {
+    clientSubmissionId: { type: String, unique: true, sparse: true },
+    payloadFingerprint: { type: String },
     name: { type: Schema.Types.Mixed },
     year: { type: Number, default: null },
     fac: { type: String },
     spec: { type: Schema.Types.Mixed },
     pos: { type: Schema.Types.Mixed },
     bio: { type: Schema.Types.Mixed },
+    contact: { type: String },
     mentor: { type: String },
     students: { type: String },
     photoUrl: { type: String },

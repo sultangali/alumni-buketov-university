@@ -100,7 +100,7 @@ router.patch(
     if (typeof password === 'string' && password.trim()) {
       update.passwordHash = await bcrypt.hash(password, 10);
     }
-    const doc = await StaffUser.findOneAndUpdate({ _id: req.params.id, role: 'moderator' }, update, { new: true });
+    const doc = await StaffUser.findOneAndUpdate({ _id: req.params.id, role: 'moderator' }, { $set: update, ...(update.passwordHash || status === 'suspended' ? { $inc: { tokenVersion: 1 } } : {}) }, { new: true, runValidators: true });
     if (!doc) return res.status(404).json({ error: 'not found' });
     const [enriched] = await withProgress([doc.toJSON()]);
     res.json(enriched);

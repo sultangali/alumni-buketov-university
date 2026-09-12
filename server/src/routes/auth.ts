@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { requireAuth } from '../middleware/auth';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { StaffUser } from '../models/StaffUser';
@@ -37,12 +38,22 @@ router.post(
       return res.status(403).json({ error: 'account suspended' });
     }
     const token = jwt.sign(
-      { sub: String(user._id), username: user.username, role: user.role, fac: user.fac },
+      { sub: String(user._id), username: user.username, role: user.role, fac: user.fac, tokenVersion: user.tokenVersion ?? 0 },
       env.JWT_SECRET,
       { expiresIn: '12h' }
     );
     res.json({ token, role: user.role, username: user.username, fac: user.fac });
   })
 );
+
+router.get('/me', requireAuth, (req, res) => {
+  const { username, role, fac } = req.user!;
+  res.json({ username, role, fac });
+});
+
+router.post('/logout', requireAuth, asyncHandler(async (req, res) => {
+  await StaffUser.updateOne({ _id: req.user!.sub }, { $inc: { tokenVersion: 1 } });
+  res.json({ ok: true });
+}));
 
 export default router;

@@ -85,3 +85,15 @@ All routes under `/api`.
 - `GET /media/<filename>` — static file serving
 
 Authenticated routes expect `Authorization: Bearer <jwt>`.
+
+### Session and submission behavior
+
+- `GET /api/auth/me` returns the current `{ username, role, fac }`. Protected requests read the current staff account; deleted/suspended accounts and revoked tokens receive HTTP 401. Password resets and suspension revoke previous tokens. Tokens issued before the token-version field was introduced require a fresh login.
+- `POST /api/auth/logout` revokes all existing sessions for the signed-in account and returns `{ ok: true }`.
+- Public submissions accept `contact` as a private string and preserve it for staff review. It is never copied into public person records. Unknown nonempty faculty names may enter review; an admin must correct `fac` to an existing faculty ID before approval.
+- Staff can edit only submissions in `review`. Approval is idempotent; conflicting status changes return 409. A temporary `publishing` state freezes the reviewed snapshot. Retrying approval after an interruption completes publication using the same deterministic unique person ID, without requiring MongoDB replica-set transactions.
+- Free-text relationships are published as `mentorText` / `studentsText`; existing relationship ID arrays retain their original meaning.
+
+### Regression tests
+
+Run `npm test` from `server/` with local MongoDB available at `127.0.0.1:27017`. Tests ignore `MONGO_URI`, create a unique database named `alumni_test_<timestamp>_<pid>`, start a separate local server, and drop only that database after checking its exact name. They never seed or modify the working `alumni` database. Run `npm run build` to check server types.

@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { env } from '../env';
+import { StaffUser } from '../models/StaffUser';
+import { isValidObjectId } from 'mongoose';
 
 export interface AuthUser {
   sub: string;
@@ -18,7 +20,7 @@ declare global {
   }
 }
 
-export function requireAuth(req: Request, res: Response, next: NextFunction) {
+export async function requireAuth(req: Request, res: Response, next: NextFunction) {
   const header = req.headers.authorization || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : '';
   if (!token) {
@@ -26,7 +28,12 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
   }
   try {
     const payload = jwt.verify(token, env.JWT_SECRET) as AuthUser;
-    req.user = payload;
+    if (!isValidObjectId(payload.sub)) return res.status(401).json({ error: 'invalid token' });
+    const user = await StaffUser.findById(payload.sub);
+    if (!user || user.status === 'suspended' || (payload as AuthUser & { tokenVersion?: number }).tokenVersion !== (user.tokenVersion ?? 0)) {
+      return res.status(401).json({ error: 'session expired' });
+    }
+    req.user = { sub: String(user._id), username: user.username, role: user.role, fac: user.fac ?? undefined };
     next();
   } catch {
     return res.status(401).json({ error: 'invalid token' });

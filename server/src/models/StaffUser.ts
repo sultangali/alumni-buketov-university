@@ -15,6 +15,7 @@ const staffTransform = {
     delete ret.__v;
     delete ret.passwordHash;
     delete ret.weeklyPasswords;
+    delete ret.tokenVersion;
     return ret;
   },
 };
@@ -33,6 +34,7 @@ const StaffUserSchema = new Schema(
   {
     username: { type: String, required: true, unique: true, index: true },
     passwordHash: { type: String, required: true },
+    tokenVersion: { type: Number, default: 0 },
     role: { type: String, enum: ['moderator', 'admin'], required: true },
     fac: { type: String },
     scope: { type: LocSchema },
